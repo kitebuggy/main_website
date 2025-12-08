@@ -1,0 +1,57 @@
+---
+layout: default
+title: Home
+header_transparent: true
+---
+
+{% include components/hero.html 
+  badge="AI Security & GRC Innovation"
+  title="Secure Your"
+  title_gradient="AI-Driven Future"
+  description="Expert AI security gap analysis and GRC-aligned consulting to identify vulnerabilities, ensure compliance, and build resilient security frameworks for tomorrow's threats."
+  cta_primary="Schedule Free Consultation"
+  cta_primary_link="/contact/"
+  cta_secondary="Download AI Security Guide"
+  cta_secondary_link="/resources/ai-security-guide/"
+  trust_badges=true
+%}
+
+<!-- Services Section -->
+<section class="services-section">
+  <div class="container">
+    <div class="section-header">
+      <h2>Our Services</h2>
+      <p>Comprehensive security innovation focused on AI risks and regulatory compliance</p>
+    </div>
+
+    <div class="services-grid">
+      {% for service in site.data.services %}
+      <div class="service-card">
+        <div class="service-icon">{{ service.icon }}</div>
+        <h3>{{ service.title }}</h3>
+        <p>{{ service.description }}</p>
+        <ul class="service-features">
+          {% for feature in service.features %}
+          <li>{{ feature }}</li>
+          {% endfor %}
+        </ul>
+        <a href="{{ service.url }}" class="service-link">Learn more →</a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-content">
+      <h2>Ready to Secure Your AI Future?</h2>
+      <p>Get a free AI security gap analysis and discover how we can help you build a resilient, compliant security framework.</p>
+      <div class="cta-actions">
+        <a href="/contact/" class="btn btn-white">Book Free Consultation</a>
+        <a href="/resources/" class="btn btn-outline">Download Service Overview</a>
+      </div>
+    </div>
+  </div>
+</section>

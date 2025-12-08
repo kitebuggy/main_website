@@ -1,0 +1,65 @@
+<header class="site-header {% if page.header_transparent %}header-transparent{% endif %}" data-header>
+  <div class="container">
+    <!-- Top Bar -->
+    <div class="header-topbar">
+      <div class="header-contact">
+        <a href="tel:+441234567890">
+          <svg><!-- Phone icon --></svg>
+          Contact Us
+        </a>
+        <a href="mailto:info@qlsecurity.co.uk">
+          <svg><!-- Mail icon --></svg>
+          info@qlsecurity.co.uk
+        </a>
+      </div>
+      <div class="header-location">
+        Birmingham, UK
+      </div>
+    </div>
+
+    <!-- Main Navigation -->
+    <div class="header-main">
+      <div class="header-logo">
+        <a href="{{ '/' | relative_url }}">
+          <img src="{{ '/assets/images/QL_Security_logo.svg' | relative_url }}" alt="QL Security">
+        </a>
+      </div>
+
+      <nav class="header-nav">
+        <ul>
+          <li class="{% if page.url == '/' %}active{% endif %}">
+            <a href="{{ '/' | relative_url }}">Home</a>
+          </li>
+          <li class="has-dropdown {% if page.url contains '/services' %}active{% endif %}">
+            <a href="{{ '/services/' | relative_url }}">Services</a>
+            <ul class="dropdown">
+              <li><a href="{{ '/services/ai-security/' | relative_url }}">AI Security Gap Analysis</a></li>
+              <li><a href="{{ '/services/grc/' | relative_url }}">GRC Consulting</a></li>
+              <li><a href="{{ '/services/compliance/' | relative_url }}">Compliance Assessment</a></li>
+              <li><a href="{{ '/services/roadmap/' | relative_url }}">Security Roadmap</a></li>
+            </ul>
+          </li>
+          <li class="{% if page.url contains '/blog' %}active{% endif %}">
+            <a href="{{ '/blog/' | relative_url }}">Blog</a>
+          </li>
+          <li class="{% if page.url contains '/about' %}active{% endif %}">
+            <a href="{{ '/about/' | relative_url }}">About</a>
+          </li>
+          <li class="{% if page.url contains '/contact' %}active{% endif %}">
+            <a href="{{ '/contact/' | relative_url }}">Contact</a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="header-cta">
+        <a href="{{ '/contact/' | relative_url }}" class="btn btn-primary">Free Assessment</a>
+      </div>
+
+      <button class="mobile-menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>
