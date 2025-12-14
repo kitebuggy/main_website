@@ -7,26 +7,40 @@
   
   <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
   
-  <!-- Tailwind CSS CDN (for development) -->
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'ql-blue': '#2C64B9',
+            'ql-blue-light': '#4A90E2',
+            'ql-blue-dark': '#2454a0',
+          }
+        }
+      }
+    }
+  </script>
   
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
-  
-  <!-- Favicon -->
-  <link rel="icon" href="{{ '/assets/images/favicon.ico' | relative_url }}">
+  <style>
+    body {
+      background: linear-gradient(to bottom right, #0f172a, #1e4a7a, #1e293b);
+      min-height: 100vh;
+    }
+  </style>
 </head>
-<body class="{% if page.body_class %}{{ page.body_class }}{% endif %}">
+<body>
   
   {% include components/header.html %}
   
-  <main class="site-content">
+  <main>
     {{ content }}
   </main>
   
   {% include components/footer.html %}
   
-  <!-- JavaScript -->
   <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
 </body>
 </html>
