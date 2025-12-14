@@ -1,0 +1,24 @@
+- name: "ISO 27001 Certified"
+  logo: "/assets/images/certifications/iso27001.png"
+  description: "Information Security Management"
+  
+- name: "Cyber Essentials Plus"
+  logo: "/assets/images/certifications/cyber-essentials.png"
+  description: "UK Government Backed Scheme"
+  
+- name: "CREST Approved"
+  logo: "/assets/images/certifications/crest.png"
+  description: "Technical Security Services"
+  
+- name: "G-Cloud 14 Supplier"
+  logo: "/assets/images/certifications/gcloud.png"
+  description: "Government Digital Marketplace"
+  
+- name: "GDPR Compliant"
+  logo: "/assets/images/certifications/gdpr.png"
+  description: "Data Protection Standards"
+  
+- name: "SOC 2 Type II"
+  logo: "/assets/images/certifications/soc2.png"
+  description: "Security & Availability"
+  

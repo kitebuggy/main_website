@@ -1,0 +1,45 @@
+<!-- Dark Cards Certifications Component -->
+<section class="py-16 relative">
+  <div class="container mx-auto px-4">
+    <div class="max-w-6xl mx-auto">
+      
+      {% if include.title %}
+      <h3 class="text-center text-2xl text-white font-bold mb-4">{{ include.title }}</h3>
+      {% else %}
+      <h3 class="text-center text-2xl text-white font-bold mb-4">Certifications & Partnerships</h3>
+      {% endif %}
+      
+      {% if include.subtitle %}
+      <p class="text-center text-blue-200 mb-12">{{ include.subtitle }}</p>
+      {% else %}
+      <p class="text-center text-blue-200 mb-12">Trusted standards and industry-leading partners</p>
+      {% endif %}
+      
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-{{ include.columns | default: '6' }} gap-6">
+        {% for cert in site.data.certifications limit:include.limit %}
+        <div class="group bg-slate-900/50 backdrop-blur border border-[#2C64B9]/20 rounded-xl p-6 hover:border-[#4A90E2]/50 transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-[#2C64B9]/20">
+          
+          <!-- White logo box -->
+          <div class="bg-white rounded-lg p-4 mb-3 flex items-center justify-center min-h-[80px]">
+            <img 
+              src="{{ cert.logo }}" 
+              alt="{{ cert.name }}" 
+              class="h-12 w-auto max-w-full object-contain"
+            >
+          </div>
+          
+          <!-- Certification name -->
+          <p class="text-xs text-blue-200 text-center font-semibold mb-1">{{ cert.name }}</p>
+          
+          <!-- Optional description -->
+          {% if include.show_descriptions and cert.description %}
+          <p class="text-xs text-blue-300/70 text-center">{{ cert.description }}</p>
+          {% endif %}
+          
+        </div>
+        {% endfor %}
+      </div>
+      
+    </div>
+  </div>
+</section>
