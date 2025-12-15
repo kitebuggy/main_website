@@ -1,32 +1,96 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+---
+layout: default
+---
+
+<article class="page-template">
   
-  <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
-  
-  <!-- Tailwind CSS CDN (for development) -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
-  
-  <!-- Favicon -->
-  <link rel="icon" href="{{ '/assets/images/favicon.ico' | relative_url }}">
-</head>
-<body class="{% if page.body_class %}{{ page.body_class }}{% endif %}">
-  
-  {% include components/header.html %}
-  
-  <main class="site-content">
-    {{ content }}
-  </main>
-  
-  {% include components/footer.html %}
-  
-  <!-- JavaScript -->
-  <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
-</body>
-</html>
+  <section class="py-20 lg:py-28 relative overflow-hidden">
+    <div class="absolute inset-0 overflow-hidden">
+      <div class="absolute w-96 h-96 bg-[#2C64B9]/20 rounded-full blur-3xl -top-48 -left-48"></div>
+      <div class="absolute w-96 h-96 bg-[#5B7EC8]/10 rounded-full blur-3xl -top-48 -right-48"></div>
+    </div>
+    
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="max-w-4xl mx-auto text-center">
+        {% if page.breadcrumbs %}
+        <nav class="mb-6 text-sm">
+          <a href="{{ '/' | relative_url }}" class="text-blue-300 hover:text-blue-200 transition-colors">Home</a>
+          <span class="text-blue-400 mx-2">/</span>
+          <span class="text-blue-200">{{ page.title }}</span>
+        </nav>
+        {% endif %}
+        
+        <h1 class="text-4xl lg:text-6xl font-bold text-white mb-6">
+          {{ page.title }}
+        </h1>
+        
+        {% if page.description %}
+        <p class="text-xl text-blue-200 max-w-2xl mx-auto">
+          {{ page.description }}
+        </p>
+        {% endif %}
+        
+        {% if page.last_updated %}
+        <p class="text-sm text-blue-300 mt-6">
+          Last updated: {{ page.last_updated | date: "%B %d, %Y" }}
+        </p>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 lg:py-16">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        
+        {% if page.show_toc and page.sections %}
+        <div class="grid lg:grid-cols-4 gap-8">
+          
+          <aside class="lg:col-span-1">
+            <div class="bg-slate-900/50 backdrop-blur border border-[#2C64B9]/20 rounded-xl p-6 sticky top-24">
+              <h3 class="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Contents</h3>
+              <nav class="space-y-2">
+                {% for section in page.sections %}
+                <a href="#{{ section.id }}" class="block text-sm text-blue-200 hover:text-blue-400 transition-colors py-1">
+                  {{ section.title }}
+                </a>
+                {% endfor %}
+              </nav>
+            </div>
+          </aside>
+
+          <div class="lg:col-span-3 prose prose-invert prose-blue max-w-none">
+            <div class="bg-slate-900/30 backdrop-blur border border-[#2C64B9]/10 rounded-2xl p-8 lg:p-12">
+              {{ content }}
+            </div>
+          </div>
+          
+        </div>
+        {% else %}
+        <div class="prose prose-invert prose-blue max-w-none">
+          <div class="bg-slate-900/30 backdrop-blur border border-[#2C64B9]/10 rounded-2xl p-8 lg:p-12">
+            {{ content }}
+          </div>
+        </div>
+        {% endif %}
+        
+      </div>
+    </div>
+  </section>
+
+  {% if page.show_contact_cta %}
+  <section class="py-16">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        {% include blocks/cta-banner.html 
+          title="Have Questions?"
+          description="Get in touch with our team for more information"
+          button_text="Contact Us"
+          button_link="/contact/"
+        %}
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
+</article>
