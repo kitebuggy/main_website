@@ -51,17 +51,75 @@ The project initially considered Next.js/React but ultimately chose Jekyll for:
 _layouts/
 ├── default.html          # Base layout with header/footer
 ├── page.html            # Standard page layout
-└── [future layouts]     # Service pages, blog posts, etc.
+├── post.html            # Blog post layout
+└── [future layouts]     # Service pages, landing pages, etc.
+```
+
+#### Fixed Header Pattern & Content Clearance
+
+**Critical Design Decision:** The site uses a fixed header that remains visible during scrolling. To ensure content is never hidden behind the header, we implement a standardized clearance pattern.
+
+**Implementation:**
+```html
+<!-- default.html -->
+<body>
+  {% include components/header.html %}
+  
+  <main class="pt-32 lg:pt-40">  <!-- Header clearance applied here -->
+    {{ content }}
+  </main>
+  
+  {% include components/footer.html %}
+</body>
+```
+
+**Key Principles:**
+1. **Single Source of Truth:** Top padding is applied ONLY in `default.html` on the `<main>` tag
+2. **Component Independence:** Individual layouts (page, post) and components (hero) do NOT add their own top padding
+3. **Consistency Guarantee:** All pages automatically get proper header clearance
+4. **DRY Principle:** Eliminates repeated padding declarations across templates
+
+**Padding Values:**
+- Desktop (`lg:pt-40`): 10rem (160px)
+- Mobile (`pt-32`): 8rem (128px)
+
+These values account for:
+- Fixed header height
+- Top bar (collapsible on scroll)
+- Visual breathing room
+
+**Before This Pattern (Problematic):**
+```html
+<!-- Each component had to remember padding -->
+<section class="pt-32 lg:pt-40">  <!-- Repeated everywhere -->
+  <!-- Content hidden behind header if forgotten -->
+</section>
+```
+
+**After This Pattern (Correct):**
+```html
+<!-- default.html handles it once -->
+<main class="pt-32 lg:pt-40">
+  {{ content }}
+</main>
+
+<!-- Individual pages just focus on their content -->
+<section class="py-20">  <!-- Only vertical padding, no top -->
+  <!-- Content automatically clears header -->
+</section>
 ```
 
 ### Component Architecture
 
 ```
 _includes/
-├── header.html          # Global navigation
-├── footer.html          # Company info, links, social
-├── hero.html           # Homepage hero section
-└── certifications/     # Modular certification displays
+├── components/
+│   ├── header.html          # Global navigation (fixed position)
+│   ├── footer.html          # Company info, links, social
+│   └── hero.html           # Homepage hero section
+├── blocks/
+│   └── cta-banner.html     # Reusable call-to-action banner
+└── certifications/         # Modular certification displays
     ├── glassmorphic-container.html
     ├── white-section-grayscale.html
     ├── individual-dark-cards.html
@@ -72,6 +130,8 @@ _includes/
 
 ### Color Palette
 - **Primary Brand:** `#2C64B9` (Corporate Blue)
+- **Light Variant:** `#4A90E2` (ql-blue-light)
+- **Dark Variant:** `#2454a0` (ql-blue-dark)
 - **Background:** Dark gradient themes
 - **Accents:** White, grayscale for hover effects
 - **Text:** High contrast for accessibility
@@ -100,6 +160,7 @@ The architecture emphasizes **flexibility over fixed implementations**. Rather t
 2. **Reusable:** Work across different pages and contexts
 3. **Self-contained:** Include necessary markup and styling
 4. **Mix-and-match:** Compatible with other components
+5. **Layout-agnostic:** Don't assume positioning context
 
 ### Example: Certification Display Options
 
@@ -153,7 +214,9 @@ collections:
 layout: page
 title: "Page Title"
 description: "SEO meta description"
-image: "/assets/images/og-image.jpg"
+breadcrumbs: true              # Show breadcrumb navigation
+show_contact_cta: true         # Include contact banner at bottom
+last_updated: 2024-12-16       # Optional last updated date
 ---
 ```
 
@@ -162,14 +225,15 @@ image: "/assets/images/og-image.jpg"
 ```
 assets/
 ├── css/
-│   └── styles.css      # Custom CSS (if not fully Tailwind)
+│   ├── main.css           # Global styles, body gradients
+│   └── layouts.css        # Layout-specific styles, animations
 ├── js/
-│   └── main.js         # Interactive elements
+│   └── main.js            # Header scroll effects, mobile menu
 └── images/
     ├── logo/
     ├── certifications/
     ├── services/
-    └── og-images/      # Social media cards
+    └── og-images/         # Social media cards
 ```
 
 ## Build & Deployment
@@ -212,9 +276,16 @@ jekyll build
 
 ### CSS Strategy
 - Tailwind CSS for utility-first styling
-- Minimal custom CSS
-- Purged unused styles in production
-- Critical CSS inlining (optional)
+- Minimal custom CSS in main.css and layouts.css
+- Browser-based Tailwind (no build step currently)
+- Critical styles inlined via CDN
+
+### JavaScript Strategy
+- Minimal dependencies
+- Header scroll effects (collapse top bar on scroll)
+- Mobile menu toggle
+- Ticker animation controls
+- Progressive enhancement approach
 
 ## Accessibility Considerations
 
@@ -224,6 +295,7 @@ jekyll build
 - Keyboard navigation support
 - Sufficient color contrast ratios
 - ARIA labels where appropriate
+- Focus styles for interactive elements
 
 ## SEO Architecture
 
@@ -291,8 +363,9 @@ The component-based architecture allows:
 1. **Flexibility First:** Multiple solutions over single fixed approach
 2. **Future-Proof:** Easy to modify as business evolves
 3. **Maintainability:** Clean, documented code
-4. **Performance:** Fast loading, optimized assets
-5. **Professionalism:** Corporate-grade design and UX
+4. **DRY (Don't Repeat Yourself):** Single source of truth for common patterns
+5. **Performance:** Fast loading, optimized assets
+6. **Professionalism:** Corporate-grade design and UX
 
 ### Technical Guidelines
 - Semantic, accessible HTML
@@ -300,12 +373,20 @@ The component-based architecture allows:
 - Reusable Jekyll includes with parameters
 - Minimal JavaScript dependency
 - Progressive enhancement approach
+- **NO inline styles** - all styling via Tailwind classes or external CSS
+- Consistent layout patterns (header clearance, section structure)
+
+### Code Quality Standards
+1. **Production-Ready Code:** All code should be deployment-ready
+2. **Maintainable Architecture:** Easy for future developers to understand
+3. **Consistent Patterns:** Follow established conventions
+4. **Documentation:** Comment complex logic, document component parameters
 
 ## Configuration Management
 
 ### Jekyll Configuration (`_config.yml`)
 ```yaml
-title: QL Security
+title: Quantum Leap Security
 description: AI Security Gap Analysis & GRC-Aligned Services
 url: "https://qlsecurity.com"
 baseurl: ""
@@ -354,6 +435,11 @@ Each reusable component should document:
 
 ---
 
-**Document Version:** 1.0  
+**Document Version:** 1.1  
 **Last Updated:** December 2024  
 **Maintained By:** Jason / QL Security Development Team
+
+**Recent Updates:**
+- Added fixed header clearance pattern documentation
+- Documented DRY principle for layout consistency
+- Added code quality standards section
