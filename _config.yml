@@ -29,7 +29,7 @@ url: "https://qlsecurity.co.uk" # the base hostname & protocol for your site
 # github_username:  jekyll
 
 # Build settings
-theme: minima
+# theme: minima  # Removed - using custom Tailwind-based design
 plugins:
   - jekyll-feed
 
