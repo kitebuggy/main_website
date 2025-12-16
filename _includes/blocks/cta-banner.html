@@ -1,0 +1,24 @@
+<div class="relative overflow-hidden rounded-2xl bg-gradient-to-r from-[#2C64B9] via-[#3d75c3] to-[#4A90E2] p-8 lg:p-12">
+  <div class="relative z-10">
+    {% if include.title %}
+    <h3 class="text-3xl font-bold text-white mb-4">{{ include.title }}</h3>
+    {% endif %}
+    
+    {% if include.description %}
+    <p class="text-xl text-blue-100 mb-8">{{ include.description }}</p>
+    {% endif %}
+    
+    {% if include.button_text and include.button_link %}
+    <a href="{{ include.button_link | relative_url }}" class="inline-flex items-center gap-2 px-8 py-4 bg-white text-[#2C64B9] rounded-lg hover:bg-blue-50 transition-all font-semibold shadow-lg">
+      {{ include.button_text }}
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+      </svg>
+    </a>
+    {% endif %}
+  </div>
+  
+  <!-- Decorative elements -->
+  <div class="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
+  <div class="absolute bottom-0 right-1/4 w-48 h-48 bg-[#4A90E2]/20 rounded-full blur-2xl"></div>
+</div>
