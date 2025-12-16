@@ -4,13 +4,13 @@ layout: default
 
 <article class="page-template">
   
-  <section class="py-20 lg:py-28 relative overflow-hidden">
+  <section class="relative overflow-hidden bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900">
     <div class="absolute inset-0 overflow-hidden">
       <div class="absolute w-96 h-96 bg-[#2C64B9]/20 rounded-full blur-3xl -top-48 -left-48"></div>
       <div class="absolute w-96 h-96 bg-[#5B7EC8]/10 rounded-full blur-3xl -top-48 -right-48"></div>
     </div>
     
-    <div class="container mx-auto px-4 relative z-10">
+    <div class="container mx-auto px-4 relative z-10 pt-32 pb-20 lg:pt-40 lg:pb-28">
       <div class="max-w-4xl mx-auto text-center">
         {% if page.breadcrumbs %}
         <nav class="mb-6 text-sm">
@@ -39,7 +39,7 @@ layout: default
     </div>
   </section>
 
-  <section class="py-12 lg:py-16">
+  <section class="py-12 lg:py-16 relative">
     <div class="container mx-auto px-4">
       <div class="max-w-4xl mx-auto">
         
@@ -79,7 +79,7 @@ layout: default
   </section>
 
   {% if page.show_contact_cta %}
-  <section class="py-16">
+  <section class="py-16 relative">
     <div class="container mx-auto px-4">
       <div class="max-w-4xl mx-auto">
         {% include blocks/cta-banner.html 
