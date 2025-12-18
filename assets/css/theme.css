@@ -1,0 +1,585 @@
+/* ============================================
+   THEME SYSTEM FOR QL SECURITY
+   CSS Custom Properties for Light/Dark Mode
+   ============================================ */
+
+/* ============================================
+   LIGHT THEME (Default)
+   Clean, professional color palette
+   ============================================ */
+:root {
+  /* Background Colors - LIGHTER for light mode */
+  --color-bg-primary: #fafbfc;
+  --color-bg-secondary: #e8f0fb;
+  --color-bg-tertiary: #f1f5f9;
+  --color-bg-gradient-start: #f0f4ff;
+  --color-bg-gradient-middle: #f8fbff;
+  --color-bg-gradient-end: #fafbfc;
+  
+  /* Text Colors - DARK BLUE instead of dark slate */
+  --color-text-primary: #1e3a8a;
+  --color-text-secondary: #1e4a8f;
+  --color-text-tertiary: #2563eb;
+  --color-text-inverse: #ffffff;
+  
+  /* Brand Colors */
+  --color-accent: #2C64B9;
+  --color-accent-light: #4080d9;
+  --color-accent-dark: #1e4a8a;
+  --color-accent-hover: #3b82f6;
+  --color-accent-10: rgba(44, 100, 185, 0.1);
+  --color-accent-20: rgba(44, 100, 185, 0.2);
+  --color-accent-30: rgba(44, 100, 185, 0.3);
+  
+  /* UI Element Colors */
+  --color-border: #e2e8f0;
+  --color-border-light: #f1f5f9;
+  --color-border-accent: rgba(44, 100, 185, 0.2);
+  
+  /* Card Colors */
+  --color-card-bg: #ffffff;
+  --color-card-border: rgba(44, 100, 185, 0.1);
+  --color-card-shadow: rgba(15, 23, 42, 0.08);
+  --color-card-hover-bg: #f8fafc;
+  
+  /* Header Colors */
+  --color-header-bg: rgba(44, 100, 185, 0.95);
+  --color-header-border: rgba(255, 255, 255, 0.1);
+  --color-header-text: #ffffff;
+  --color-header-text-hover: rgba(255, 255, 255, 0.8);
+  
+  /* Hero Section Colors - Used for hero WITH background */
+  --color-hero-bg: #2C64B9;
+  --color-hero-bg-gradient-start: #1e4a8a;
+  --color-hero-bg-gradient-end: #4080d9;
+  --color-hero-text: #ffffff;
+  --color-hero-text-secondary: #e0e7ff;
+  --color-hero-badge-bg: rgba(255, 255, 255, 0.15);
+  --color-hero-badge-border: rgba(255, 255, 255, 0.3);
+  --color-hero-badge-text: #ffffff;
+  --color-hero-accent: #a5c9ff;
+  
+  /* Footer Colors - LIGHT background with DARK text for light mode */
+  --color-footer-bg: #f1f5f9;
+  --color-footer-text: #1e3a8a;
+  --color-footer-text-secondary: #1e4a8f;
+  --color-footer-link: #2C64B9;
+  --color-footer-link-hover: #1e4a8a;
+  
+  /* Interactive Elements */
+  --color-link: #2C64B9;
+  --color-link-hover: #1e4a8a;
+  --color-button-primary-bg: #2C64B9;
+  --color-button-primary-text: #ffffff;
+  --color-button-primary-hover: #1e4a8a;
+  --color-button-secondary-bg: #f1f5f9;
+  --color-button-secondary-text: #1e4a8a;
+  --color-button-secondary-hover: #e2e8f0;
+  
+  /* Special Effects */
+  --color-glow: rgba(44, 100, 185, 0.15);
+  --color-glow-strong: rgba(44, 100, 185, 0.25);
+  --color-overlay: rgba(255, 255, 255, 0.05);
+  --color-glass-bg: rgba(255, 255, 255, 0.8);
+  --color-glass-border: rgba(44, 100, 185, 0.2);
+  
+  /* Orb Animation Colors */
+  --color-orb-1: rgba(44, 100, 185, 0.08);
+  --color-orb-2: rgba(91, 126, 200, 0.06);
+  
+  /* Form Elements */
+  --color-input-bg: #ffffff;
+  --color-input-border: #e2e8f0;
+  --color-input-focus: #2C64B9;
+  --color-input-text: #1e4a8a;
+  
+  /* Status Colors */
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+  --color-info: #3b82f6;
+  
+  /* Inverted Hero Box Colors (light mode = dark box) */
+  --hero-box-bg: #0f172a;
+  --hero-box-bg-gradient-start: #0a0e27;
+  --hero-box-bg-gradient-end: #1a2744;
+  --hero-box-text: #ffffff;
+  --hero-box-text-secondary: #cbd5e1;
+  --hero-box-border: rgba(44, 100, 185, 0.3);
+  --hero-box-shadow: rgba(15, 23, 42, 0.2);
+}
+
+/* ============================================
+   DARK THEME
+   Sophisticated dark color palette with brand blue
+   ============================================ */
+[data-theme="dark"] {
+  /* Background Colors */
+  --color-bg-primary: #0a0e27;
+  --color-bg-secondary: #1a1f3a;
+  --color-bg-tertiary: #252b4a;
+  --color-bg-gradient-start: #0f172a;
+  --color-bg-gradient-middle: #1e4a7a;
+  --color-bg-gradient-end: #1e293b;
+  
+  /* Text Colors */
+  --color-text-primary: #e2e8f0;
+  --color-text-secondary: #cbd5e1;
+  --color-text-tertiary: #94a3b8;
+  --color-text-inverse: #1e293b;
+  
+  /* Brand Colors - same in both themes */
+  --color-accent: #2C64B9;
+  --color-accent-light: #4080d9;
+  --color-accent-dark: #1e4a8a;
+  --color-accent-hover: #5b9fd9;
+  --color-accent-10: rgba(44, 100, 185, 0.1);
+  --color-accent-20: rgba(44, 100, 185, 0.2);
+  --color-accent-30: rgba(44, 100, 185, 0.3);
+  
+  /* UI Element Colors */
+  --color-border: rgba(255, 255, 255, 0.1);
+  --color-border-light: rgba(255, 255, 255, 0.05);
+  --color-border-accent: rgba(44, 100, 185, 0.3);
+  
+  /* Card Colors */
+  --color-card-bg: rgba(255, 255, 255, 0.05);
+  --color-card-border: rgba(44, 100, 185, 0.3);
+  --color-card-shadow: rgba(0, 0, 0, 0.3);
+  --color-card-hover-bg: rgba(255, 255, 255, 0.08);
+  
+  /* Header Colors */
+  --color-header-bg: rgba(44, 100, 185, 0.95);
+  --color-header-border: rgba(255, 255, 255, 0.1);
+  --color-header-text: #ffffff;
+  --color-header-text-hover: rgba(255, 255, 255, 0.8);
+  
+  /* Hero Section Colors - Used for hero WITH background */
+  --color-hero-bg: #0a0e27;
+  --color-hero-bg-gradient-start: #0f172a;
+  --color-hero-bg-gradient-end: #1a1f3a;
+  --color-hero-text: #ffffff;
+  --color-hero-text-secondary: #cbd5e1;
+  --color-hero-badge-bg: rgba(44, 100, 185, 0.1);
+  --color-hero-badge-border: rgba(44, 100, 185, 0.3);
+  --color-hero-badge-text: #93c5fd;
+  --color-hero-accent: #4A90E2;
+  
+  /* Footer Colors - DARK background with LIGHT text for dark mode */
+  --color-footer-bg: #0a0e27;
+  --color-footer-text: #e2e8f0;
+  --color-footer-text-secondary: #cbd5e1;
+  --color-footer-link: #93c5fd;
+  --color-footer-link-hover: #bfdbfe;
+  
+  /* Interactive Elements */
+  --color-link: #4080d9;
+  --color-link-hover: #5b9fd9;
+  --color-button-primary-bg: #2C64B9;
+  --color-button-primary-text: #ffffff;
+  --color-button-primary-hover: #4080d9;
+  --color-button-secondary-bg: rgba(255, 255, 255, 0.1);
+  --color-button-secondary-text: #e2e8f0;
+  --color-button-secondary-hover: rgba(255, 255, 255, 0.15);
+  
+  /* Special Effects */
+  --color-glow: rgba(44, 100, 185, 0.15);
+  --color-glow-strong: rgba(44, 100, 185, 0.3);
+  --color-overlay: rgba(255, 255, 255, 0.05);
+  --color-glass-bg: rgba(255, 255, 255, 0.1);
+  --color-glass-border: rgba(44, 100, 185, 0.4);
+  
+  /* Orb Animation Colors */
+  --color-orb-1: rgba(44, 100, 185, 0.15);
+  --color-orb-2: rgba(91, 126, 200, 0.12);
+  
+  /* Form Elements */
+  --color-input-bg: rgba(255, 255, 255, 0.05);
+  --color-input-border: rgba(255, 255, 255, 0.1);
+  --color-input-focus: #4080d9;
+  --color-input-text: #e2e8f0;
+  
+  /* Status Colors */
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+  --color-info: #3b82f6;
+  
+  /* Inverted Hero Box Colors (dark mode = white box) */
+  --hero-box-bg: #ffffff;
+  --hero-box-bg-gradient-start: #ffffff;
+  --hero-box-bg-gradient-end: #f8fafc;
+  --hero-box-text: #1e293b;
+  --hero-box-text-secondary: #475569;
+  --hero-box-border: rgba(44, 100, 185, 0.2);
+  --hero-box-shadow: rgba(0, 0, 0, 0.1);
+}
+
+/* ============================================
+   THEME TRANSITION
+   Smooth color transitions when switching themes
+   ============================================ */
+*,
+*::before,
+*::after {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-duration: 200ms;
+  transition-timing-function: ease-in-out;
+}
+
+/* Disable transitions for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ============================================
+   THEME-AWARE COMPONENT STYLES
+   Base components using CSS variables
+   ============================================ */
+
+/* Body now uses CSS variables */
+body {
+  background: linear-gradient(
+    to bottom right,
+    var(--color-bg-gradient-start),
+    var(--color-bg-gradient-middle),
+    var(--color-bg-gradient-end)
+  );
+  color: var(--color-text-primary);
+}
+
+/* Animated background orbs */
+body::before {
+  background: var(--color-orb-1);
+}
+
+body::after {
+  background: var(--color-orb-2);
+}
+
+/* Links */
+a {
+  color: var(--color-link);
+}
+
+a:hover {
+  color: var(--color-link-hover);
+}
+
+/* Selection color - uses brand blue in both modes */
+::selection {
+  background-color: var(--color-accent);
+  color: var(--color-text-inverse);
+}
+
+/* Focus styles */
+a:focus,
+button:focus,
+input:focus,
+textarea:focus {
+  outline: 2px solid var(--color-accent-light);
+  outline-offset: 2px;
+}
+
+/* ============================================
+   SEMANTIC TEXT CLASSES
+   DRY approach - no inline styles needed
+   ============================================ */
+
+/* Primary text - main headings and important content */
+.text-theme-primary {
+  color: var(--color-text-primary);
+}
+
+/* Secondary text - body copy and descriptions */
+.text-theme-secondary {
+  color: var(--color-text-secondary);
+}
+
+/* Tertiary text - less important details */
+.text-theme-tertiary {
+  color: var(--color-text-tertiary);
+}
+
+/* Accent text - brand color emphasis */
+.text-theme-accent {
+  color: var(--color-accent);
+}
+
+/* ============================================
+   SECTION BACKGROUNDS
+   ============================================ */
+
+/* Secondary section background - light blue in light mode, dark in dark mode */
+.section-bg-secondary {
+  background-color: var(--color-bg-secondary);
+}
+
+/* Tertiary section background */
+.section-bg-tertiary {
+  background-color: var(--color-bg-tertiary);
+}
+
+/* ============================================
+   CARDS AND CONTAINERS
+   ============================================ */
+
+.card {
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-card-border);
+  box-shadow: 0 4px 6px var(--color-card-shadow);
+}
+
+.card:hover {
+  background-color: var(--color-card-hover-bg);
+}
+
+/* Glass morphic container */
+.glass-container {
+  background-color: var(--color-glass-bg);
+  border: 1px solid var(--color-glass-border);
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+
+.btn-primary {
+  background-color: var(--color-button-primary-bg);
+  color: var(--color-button-primary-text);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-button-primary-hover);
+}
+
+.btn-secondary {
+  background-color: var(--color-button-secondary-bg);
+  color: var(--color-button-secondary-text);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-button-secondary-hover);
+}
+
+/* ============================================
+   FORM INPUTS
+   ============================================ */
+
+input,
+textarea,
+select {
+  background-color: var(--color-input-bg);
+  border-color: var(--color-input-border);
+  color: var(--color-input-text);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--color-input-focus);
+}
+
+/* ============================================
+   BORDERS
+   ============================================ */
+
+.border-theme {
+  border-color: var(--color-border);
+}
+
+.border-theme-light {
+  border-color: var(--color-border-light);
+}
+
+.border-theme-accent {
+  border-color: var(--color-border-accent);
+}
+
+/* ============================================
+   HERO SECTION STYLING
+   Theme-aware hero sections with proper contrast
+   Only use .hero-section class for heroes WITH background
+   ============================================ */
+.hero-section {
+  background: linear-gradient(
+    135deg,
+    var(--color-hero-bg-gradient-start),
+    var(--color-hero-bg),
+    var(--color-hero-bg-gradient-end)
+  );
+}
+
+.hero-section h1,
+.hero-section h2,
+.hero-section h3 {
+  color: var(--color-hero-text);
+}
+
+.hero-section p {
+  color: var(--color-hero-text-secondary);
+}
+
+/* Hero badge styling */
+.hero-badge {
+  background-color: var(--color-accent-10);
+  border-color: var(--color-accent-30);
+  color: var(--color-accent);
+}
+
+.hero-accent {
+  color: var(--color-hero-accent);
+}
+
+/* ============================================
+   INVERTED HERO BOX STYLING
+   White box in dark mode, dark box in light mode
+   Jason's signature contrast style!
+   ============================================ */
+.hero-inverted-box {
+  background: var(--hero-box-bg);
+  background: linear-gradient(
+    135deg,
+    var(--hero-box-bg-gradient-start),
+    var(--hero-box-bg-gradient-end)
+  );
+  border: 1px solid var(--hero-box-border);
+  box-shadow: 0 10px 40px var(--hero-box-shadow);
+  color: var(--hero-box-text);
+}
+
+.hero-inverted-box h1,
+.hero-inverted-box h2,
+.hero-inverted-box h3,
+.hero-inverted-box h4 {
+  color: var(--hero-box-text);
+}
+
+.hero-inverted-box p,
+.hero-inverted-box .subtitle {
+  color: var(--hero-box-text-secondary);
+}
+
+/* For certification logos in the inverted box */
+[data-theme="light"] .hero-inverted-box img {
+  filter: brightness(0) invert(1);
+}
+
+[data-theme="dark"] .hero-inverted-box img {
+  filter: grayscale(0%);
+}
+
+/* ============================================
+   FOOTER STYLING
+   ============================================ */
+
+footer {
+  background-color: var(--color-footer-bg);
+}
+
+.footer-text {
+  color: var(--color-footer-text);
+}
+
+.footer-text-secondary {
+  color: var(--color-footer-text-secondary);
+}
+
+.footer-link {
+  color: var(--color-footer-link);
+}
+
+.footer-link:hover {
+  color: var(--color-footer-link-hover);
+}
+
+/* Footer logo switching - show appropriate logo for each theme */
+/* Force both logos to same size with explicit dimensions */
+.footer-logo-light,
+.footer-logo-dark {
+  height: 2rem;
+  width: 10rem;  /* Match original logo's wider aspect ratio */
+  object-fit: contain;
+}
+
+/* Light mode: show dark logo, hide light logo */
+[data-theme="light"] .footer-logo-light {
+  display: block;
+}
+
+[data-theme="light"] .footer-logo-dark {
+  display: none;
+}
+
+/* Dark mode: show light logo, hide dark logo */
+[data-theme="dark"] .footer-logo-light {
+  display: none;
+}
+
+[data-theme="dark"] .footer-logo-dark {
+  display: block;
+}
+
+/* Default (no theme set yet, assume light mode) */
+.footer-logo-light {
+  display: block;
+}
+
+.footer-logo-dark {
+  display: none;
+}
+
+/* ============================================
+   SERVICE CARDS
+   ============================================ */
+
+.service-card {
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-card-border);
+  box-shadow: 0 4px 6px var(--color-card-shadow);
+}
+
+.service-card:hover {
+  box-shadow: 0 10px 25px var(--color-card-shadow);
+}
+
+.service-card-icon {
+  background-color: var(--color-accent-10);
+  color: var(--color-accent);
+}
+
+.service-card-title {
+  color: var(--color-text-primary);
+}
+
+.service-card-description {
+  color: var(--color-text-secondary);
+}
+
+.service-card-feature {
+  color: var(--color-text-tertiary);
+}
+
+.service-card-feature svg {
+  color: var(--color-accent);
+}
+
+.service-card-link {
+  color: var(--color-accent);
+}
+
+/* ============================================
+   ICON STYLING
+   ============================================ */
+
+.icon-accent {
+  color: var(--color-accent);
+}
+
+.icon-bg-accent {
+  background-color: var(--color-accent-10);
+}
