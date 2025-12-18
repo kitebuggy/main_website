@@ -1,17 +1,17 @@
-<section class="py-12 bg-white/5 backdrop-blur-sm border-y border-white/10">
+<section class="section-bg-secondary py-12 backdrop-blur-sm border-y border-theme-light">
   <div class="container mx-auto px-4">
     
     {% if include.title %}
-    <p class="text-center text-sm text-blue-300 mb-6 uppercase tracking-wider">{{ include.title }}</p>
+    <p class="text-theme-tertiary text-center text-sm mb-6 uppercase tracking-wider">{{ include.title }}</p>
     {% else %}
-    <p class="text-center text-sm text-blue-300 mb-6 uppercase tracking-wider">Trusted By Industry Leaders</p>
+    <p class="text-theme-tertiary text-center text-sm mb-6 uppercase tracking-wider">Trusted By Industry Leaders</p>
     {% endif %}
     
     <div class="overflow-hidden">
       <div class="ticker-track flex gap-12 items-center" data-speed="{{ include.speed | default: '30' }}">
         
         {% for cert in site.data.certifications %}
-        <div class="ticker-item flex-shrink-0 bg-white rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow min-w-[100px]">
+        <div class="card ticker-item flex-shrink-0 rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow min-w-[100px]">
           <img 
             src="{{ cert.logo }}" 
             alt="{{ cert.name }}" 
@@ -21,7 +21,7 @@
         {% endfor %}
         
         {% for cert in site.data.certifications %}
-        <div class="ticker-item flex-shrink-0 bg-white rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow min-w-[100px]">
+        <div class="card ticker-item flex-shrink-0 rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow min-w-[100px]">
           <img 
             src="{{ cert.logo }}" 
             alt="{{ cert.name }}" 
@@ -34,7 +34,7 @@
     </div>
     
     {% if include.show_pause_hint %}
-    <p class="text-center text-xs text-blue-400 mt-4 italic">Hover to pause</p>
+    <p class="text-theme-tertiary text-center text-xs mt-4 italic">Hover to pause</p>
     {% endif %}
     
   </div>

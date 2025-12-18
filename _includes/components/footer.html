@@ -1,48 +1,51 @@
-<footer class="border-t border-[#2C64B9]/20 bg-slate-950/50 backdrop-blur">
+<footer class="border-t border-theme-accent backdrop-blur">
   <div class="container mx-auto px-4 py-12">
     <div class="grid md:grid-cols-4 gap-8 mb-8">
       
       <div>
         <div class="flex items-center gap-3 mb-4">
-          <img src="{{ '/assets/images/QL_Security_logo.svg' | relative_url }}" alt="QL Security" class="h-8">
+          <!-- Light mode logo (dark version) -->
+          <img src="{{ '/assets/images/QL_Security_logo_light.svg' | relative_url }}" alt="QL Security" class="h-8 footer-logo-light">
+          <!-- Dark mode logo (light version) -->
+          <img src="{{ '/assets/images/QL_Security_logo.svg' | relative_url }}" alt="QL Security" class="h-8 footer-logo-dark">
         </div>
-        <p class="text-blue-200 mb-2 font-semibold">
+        <p class="footer-text mb-2 font-semibold">
           Quantum Leap Security Limited
         </p>
-        <p class="text-sm text-blue-300 mb-4">
+        <p class="footer-text-secondary text-sm mb-4">
           Security innovation for the AI era
         </p>
       </div>
       
       <div>
-        <h4 class="text-white font-semibold mb-4">Services</h4>
-        <ul class="space-y-2 text-blue-200">
-          <li><a href="{{ '/services/ai-security/' | relative_url }}" class="hover:text-[#4A90E2] transition-colors">AI Security Analysis</a></li>
-          <li><a href="{{ '/services/grc/' | relative_url }}" class="hover:text-[#4A90E2] transition-colors">GRC Consulting</a></li>
-          <li><a href="{{ '/services/compliance/' | relative_url }}" class="hover:text-[#4A90E2] transition-colors">Compliance Assessment</a></li>
-          <li><a href="{{ '/services/roadmap/' | relative_url }}" class="hover:text-[#4A90E2] transition-colors">Security Roadmaps</a></li>
+        <h4 class="footer-text font-semibold mb-4">Services</h4>
+        <ul class="footer-text-secondary space-y-2">
+          <li><a href="{{ '/services/ai-security/' | relative_url }}" class="footer-link transition-colors">AI Security Analysis</a></li>
+          <li><a href="{{ '/services/grc/' | relative_url }}" class="footer-link transition-colors">GRC Consulting</a></li>
+          <li><a href="{{ '/services/compliance/' | relative_url }}" class="footer-link transition-colors">Compliance Assessment</a></li>
+          <li><a href="{{ '/services/roadmap/' | relative_url }}" class="footer-link transition-colors">Security Roadmaps</a></li>
         </ul>
       </div>
       
       <div>
-        <h4 class="text-white font-semibold mb-4">Company</h4>
-        <ul class="space-y-2 text-blue-200">
-          <li><a href="{{ '/about/' | relative_url }}" class="hover:text-[#4A90E2] transition-colors">About Us</a></li>
-          <li><a href="{{ '/careers/' | relative_url }}" class="hover:text-[#4A90E2] transition-colors">Careers</a></li>
-          <li><a href="{{ '/partners/' | relative_url }}" class="hover:text-[#4A90E2] transition-colors">Partners</a></li>
-          <li><a href="{{ '/contact/' | relative_url }}" class="hover:text-[#4A90E2] transition-colors">Contact</a></li>
+        <h4 class="footer-text font-semibold mb-4">Company</h4>
+        <ul class="footer-text-secondary space-y-2">
+          <li><a href="{{ '/about/' | relative_url }}" class="footer-link transition-colors">About Us</a></li>
+          <li><a href="{{ '/careers/' | relative_url }}" class="footer-link transition-colors">Careers</a></li>
+          <li><a href="{{ '/partners/' | relative_url }}" class="footer-link transition-colors">Partners</a></li>
+          <li><a href="{{ '/contact/' | relative_url }}" class="footer-link transition-colors">Contact</a></li>
         </ul>
       </div>
       
       <div>
-        <h4 class="text-white font-semibold mb-4">Address</h4>
-        <ul class="space-y-2 text-blue-200">
+        <h4 class="footer-text font-semibold mb-4">Address</h4>
+        <ul class="footer-text-secondary space-y-2">
           <li>13 St Mary's Street</li>
 	  <li>Stamford</li>
 	  <li>PE9 2DE</li>
           <li>United Kingdom</li>
           <li class="pt-2">
-            <a href="mailto:{{ site.data.main.email }}" class="hover:text-[#4A90E2] transition-colors">
+            <a href="mailto:{{ site.data.main.email }}" class="footer-link transition-colors">
 	      {{ site.data.main.email }}
             </a>
           </li>
@@ -51,12 +54,12 @@
       
     </div>
     
-    <div class="pt-8 border-t border-[#2C64B9]/20 flex flex-col md:flex-row justify-between items-center gap-4 text-blue-300 text-sm">
+    <div class="pt-8 border-t border-theme-accent flex flex-col md:flex-row justify-between items-center gap-4 text-sm footer-text-secondary">
       <p>&copy; {{ 'now' | date: "%Y" }} Quantum Leap Security Limited. All rights reserved.</p>
       <div class="flex gap-6">
-        <a href="{{ '/privacy/' | relative_url }}" class="hover:text-[#4A90E2] transition-colors">Privacy Policy</a>
-        <a href="{{ '/terms/' | relative_url }}" class="hover:text-[#4A90E2] transition-colors">Terms of Service</a>
-        <a href="{{ '/cookies/' | relative_url }}" class="hover:text-[#4A90E2] transition-colors">Cookie Policy</a>
+        <a href="{{ '/privacy/' | relative_url }}" class="footer-link transition-colors">Privacy Policy</a>
+        <a href="{{ '/terms/' | relative_url }}" class="footer-link transition-colors">Terms of Service</a>
+        <a href="{{ '/cookies/' | relative_url }}" class="footer-link transition-colors">Cookie Policy</a>
       </div>
     </div>
   </div>
