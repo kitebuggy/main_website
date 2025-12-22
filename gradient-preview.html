@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gradient Text Preview - QL Security</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* Light Mode */
+    .light-mode {
+      background: linear-gradient(to bottom right, #f0f4ff, #f8fbff, #fafbfc);
+      color: #1e3a8a;
+      padding: 4rem 2rem;
+    }
+
+    /* Dark Mode */
+    .dark-mode {
+      background: linear-gradient(to bottom right, #0f172a, #1e4a7a, #1e293b);
+      color: #e2e8f0;
+      padding: 4rem 2rem;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .mode-label {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background: rgba(44, 100, 185, 0.1);
+      border: 1px solid rgba(44, 100, 185, 0.3);
+      border-radius: 2rem;
+      font-size: 0.875rem;
+      margin-bottom: 2rem;
+      color: #4A90E2;
+    }
+
+    h1 {
+      font-size: 4rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+    }
+
+    .gradient-text-light {
+      display: block;
+      background: linear-gradient(to right, #2C64B9, #4080d9, #3b82f6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .gradient-text-dark {
+      display: block;
+      color: #e2e8f0;
+    }
+
+    .description {
+      font-size: 1.25rem;
+      max-width: 800px;
+      margin: 0 auto 2rem;
+      opacity: 0.8;
+    }
+
+    .tech-note {
+      background: rgba(44, 100, 185, 0.05);
+      border-left: 4px solid #2C64B9;
+      padding: 1rem 1.5rem;
+      margin: 2rem auto;
+      max-width: 800px;
+      text-align: left;
+      border-radius: 0.5rem;
+    }
+
+    .color-swatch {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin: 0.25rem;
+    }
+
+    .color-box {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 0.25rem;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .gradient-demo {
+      height: 4rem;
+      border-radius: 0.5rem;
+      margin: 1rem auto;
+      max-width: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1rem;
+      color: white;
+      font-weight: 600;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.5rem;
+      }
+      .description {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- LIGHT MODE EXAMPLE -->
+  <div class="light-mode">
+    <div class="container">
+      <div class="mode-label">☀️ LIGHT MODE</div>
+      
+      <h1>
+        Secure Your
+        <span class="gradient-text-light">AI-Driven Future</span>
+      </h1>
+      
+      <p class="description">
+        Expert AI security gap analysis and GRC-aligned consulting to identify vulnerabilities, ensure compliance, and build resilient security frameworks.
+      </p>
+
+      <div class="tech-note">
+        <strong>Gradient Applied:</strong> The text "AI-Driven Future" uses a smooth gradient from Corporate Blue through to Bright Blue.
+        <br><br>
+        <strong>Colors:</strong>
+        <div style="margin-top: 0.5rem;">
+          <div class="color-swatch">
+            <div class="color-box" style="background: #2C64B9;"></div>
+            <code>#2C64B9</code> → Corporate Blue
+          </div>
+          <div class="color-swatch">
+            <div class="color-box" style="background: #4080d9;"></div>
+            <code>#4080d9</code> → Lighter Blue
+          </div>
+          <div class="color-swatch">
+            <div class="color-box" style="background: #3b82f6;"></div>
+            <code>#3b82f6</code> → Bright Blue
+          </div>
+        </div>
+        <br>
+        <strong>Gradient Preview:</strong>
+        <div class="gradient-demo" style="background: linear-gradient(to right, #2C64B9, #4080d9, #3b82f6);">
+          <span>#2C64B9</span>
+          <span>→</span>
+          <span>#4080d9</span>
+          <span>→</span>
+          <span>#3b82f6</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DARK MODE EXAMPLE -->
+  <div class="dark-mode">
+    <div class="container">
+      <div class="mode-label">🌙 DARK MODE</div>
+      
+      <h1>
+        Secure Your
+        <span class="gradient-text-dark">AI-Driven Future</span>
+      </h1>
+      
+      <p class="description">
+        Expert AI security gap analysis and GRC-aligned consulting to identify vulnerabilities, ensure compliance, and build resilient security frameworks.
+      </p>
+
+      <div class="tech-note" style="background: rgba(255, 255, 255, 0.05); border-color: #4080d9; color: #cbd5e1;">
+        <strong>Gradient Disabled:</strong> In dark mode, the gradient is removed for better readability.
+        <br><br>
+        <strong>Text Color:</strong> Uses standard light text color (<code style="color: #93c5fd;">#e2e8f0</code>) for optimal contrast against the dark background.
+        <br><br>
+        <strong>Why?</strong> Gradient effects can reduce readability on dark backgrounds, so we keep it clean and simple in dark mode while reserving the eye-catching gradient for light mode.
+      </div>
+    </div>
+  </div>
+</body>
+</html>

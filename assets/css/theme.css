@@ -8,18 +8,18 @@
    Clean, professional color palette
    ============================================ */
 :root {
-  /* Background Colors - LIGHTER for light mode */
-  --color-bg-primary: #fafbfc;
-  --color-bg-secondary: #e8f0fb;
-  --color-bg-tertiary: #f1f5f9;
+  /* Background Colors - Better contrast between sections */
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #f0f7ff;
+  --color-bg-tertiary: #f8fafc;
   --color-bg-gradient-start: #f0f4ff;
   --color-bg-gradient-middle: #f8fbff;
-  --color-bg-gradient-end: #fafbfc;
+  --color-bg-gradient-end: #ffffff;
   
   /* Text Colors - DARK BLUE instead of dark slate */
   --color-text-primary: #1e3a8a;
   --color-text-secondary: #1e4a8f;
-  --color-text-tertiary: #2563eb;
+  --color-text-tertiary: #1e40af;
   --color-text-inverse: #ffffff;
   
   /* Brand Colors */
@@ -59,12 +59,12 @@
   --color-hero-badge-text: #ffffff;
   --color-hero-accent: #a5c9ff;
   
-  /* Footer Colors - LIGHT background with DARK text for light mode */
-  --color-footer-bg: #f1f5f9;
-  --color-footer-text: #1e3a8a;
-  --color-footer-text-secondary: #1e4a8f;
-  --color-footer-link: #2C64B9;
-  --color-footer-link-hover: #1e4a8a;
+  /* Footer Colors - Dark anchoring footer for visual weight */
+  --color-footer-bg: #1e293b;
+  --color-footer-text: #e2e8f0;
+  --color-footer-text-secondary: #94a3b8;
+  --color-footer-link: #93c5fd;
+  --color-footer-link-hover: #bfdbfe;
   
   /* Interactive Elements */
   --color-link: #2C64B9;
@@ -88,10 +88,10 @@
   --color-orb-2: rgba(91, 126, 200, 0.06);
   
   /* Form Elements */
-  --color-input-bg: #ffffff;
-  --color-input-border: #e2e8f0;
+  --color-input-bg: rgba(255, 255, 255, 0.8);
+  --color-input-border: rgba(44, 100, 185, 0.2);
   --color-input-focus: #2C64B9;
-  --color-input-text: #1e4a8a;
+  --color-input-text: #1e3a8a;
   
   /* Status Colors */
   --color-success: #10b981;
@@ -142,11 +142,11 @@
   --color-border-light: rgba(255, 255, 255, 0.05);
   --color-border-accent: rgba(44, 100, 185, 0.3);
   
-  /* Card Colors */
-  --color-card-bg: rgba(255, 255, 255, 0.05);
+  /* Card Colors - Slightly more visible */
+  --color-card-bg: rgba(255, 255, 255, 0.08);
   --color-card-border: rgba(44, 100, 185, 0.3);
   --color-card-shadow: rgba(0, 0, 0, 0.3);
-  --color-card-hover-bg: rgba(255, 255, 255, 0.08);
+  --color-card-hover-bg: rgba(255, 255, 255, 0.12);
   
   /* Header Colors */
   --color-header-bg: rgba(44, 100, 185, 0.95);
@@ -194,8 +194,8 @@
   --color-orb-2: rgba(91, 126, 200, 0.12);
   
   /* Form Elements */
-  --color-input-bg: rgba(255, 255, 255, 0.05);
-  --color-input-border: rgba(255, 255, 255, 0.1);
+  --color-input-bg: rgba(15, 23, 42, 0.5);
+  --color-input-border: rgba(44, 100, 185, 0.3);
   --color-input-focus: #4080d9;
   --color-input-text: #e2e8f0;
   
@@ -428,7 +428,7 @@ select:focus {
 .hero-badge {
   background-color: var(--color-accent-10);
   border-color: var(--color-accent-30);
-  color: var(--color-accent);
+  color: #4A90E2;  /* Lighter blue like before */
 }
 
 .hero-accent {
@@ -582,4 +582,97 @@ footer {
 
 .icon-bg-accent {
   background-color: var(--color-accent-10);
+}
+
+/* ============================================
+   PAGE CONTENT / PROSE STYLING
+   Theme-aware typography for markdown content
+   Now consolidated from layouts.css for DRY
+   ============================================ */
+
+/* Base prose colors */
+.prose {
+  color: var(--color-text-secondary);
+}
+
+/* All prose headings */
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+  color: var(--color-text-primary);
+}
+
+.prose p {
+  color: var(--color-text-secondary);
+}
+
+.prose ul,
+.prose ol {
+  color: var(--color-text-secondary);
+}
+
+.prose li {
+  color: var(--color-text-secondary);
+}
+
+/* Links */
+.prose a {
+  color: var(--color-link);
+  text-decoration-color: var(--color-link);
+}
+
+.prose a:hover {
+  color: var(--color-link-hover);
+  text-decoration-color: var(--color-link-hover);
+}
+
+/* Emphasis */
+.prose strong,
+.prose b {
+  color: var(--color-text-primary);
+}
+
+/* Code */
+.prose code {
+  color: var(--color-accent-light);
+  background: var(--color-accent-10);
+}
+
+.prose pre {
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+}
+
+.prose pre code {
+  color: var(--color-text-primary);
+}
+
+/* Blockquotes */
+.prose blockquote {
+  color: var(--color-text-tertiary);
+  border-left-color: var(--color-accent);
+}
+
+/* Tables */
+.prose th {
+  background: var(--color-accent-10);
+  border-bottom: 2px solid var(--color-accent);
+  color: var(--color-text-primary);
+}
+
+.prose td {
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* Horizontal rules */
+.prose hr {
+  border-top: 1px solid var(--color-border);
+}
+
+/* Page-specific prose overrides (if needed) */
+.page-content.prose {
+  color: var(--color-text-secondary);
 }

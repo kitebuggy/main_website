@@ -1,4 +1,4 @@
-<section class="relative pb-20 lg:pb-32">
+<section class="relative pt-8 pb-20 lg:pb-32">
   <div class="container mx-auto px-4">
     <div class="max-w-4xl mx-auto text-center">
       
@@ -14,7 +14,7 @@
       <h1 class="text-theme-primary text-5xl lg:text-7xl font-bold mb-6 leading-tight">
         {{ include.title | default: page.title }}
         {% if include.title_gradient %}
-        <span class="block bg-gradient-to-r from-[#2C64B9] via-[#4080d9] to-[#5B7EC8] bg-clip-text text-transparent">
+        <span class="block gradient-text">
           {{ include.title_gradient }}
         </span>
         {% endif %}

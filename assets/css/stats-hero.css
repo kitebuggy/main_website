@@ -1,0 +1,163 @@
+/* ============================================
+   AI STATS HERO - DOUGHNUT CHARTS
+   Animated circular progress charts
+   ============================================ */
+
+/* Stats Grid Layout */
+.stats-hero {
+  position: relative;
+}
+
+.stats-grid {
+  display: grid;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* Chart Container */
+.stat-chart-wrapper {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+}
+
+.stat-chart {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+/* Circle Styles */
+.stat-circle-bg,
+.stat-circle-progress {
+  fill: none;
+  stroke-width: 20;
+  stroke-linecap: round;
+}
+
+/* Background circle - uses theme variables for light/dark mode */
+.stat-circle-bg {
+  stroke: var(--color-border);
+  opacity: 0.2;
+}
+
+/* Progress circle - uses brand color */
+.stat-circle-progress {
+  stroke: #2C64B9;
+  stroke-dasharray: 502.65; /* 2 * PI * 80 (radius) */
+  stroke-dashoffset: 502.65; /* Start completely hidden */
+  transition: stroke-dashoffset 2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Animated state - applied via JavaScript */
+.stat-circle-progress.animated {
+  /* stroke-dashoffset will be set dynamically based on percentage */
+}
+
+/* Percentage Label */
+.stat-percentage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.stat-percentage-number {
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.stat-percentage-symbol {
+  font-size: 2rem;
+  margin-left: 0.25rem;
+}
+
+/* Caption */
+.stat-caption {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .stat-chart-wrapper {
+    width: 160px;
+    height: 160px;
+  }
+
+  .stat-percentage-number {
+    font-size: 2.5rem;
+  }
+
+  .stat-percentage-symbol {
+    font-size: 1.5rem;
+  }
+
+  .stat-caption {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .stat-chart-wrapper {
+    width: 140px;
+    height: 140px;
+  }
+
+  .stat-percentage-number {
+    font-size: 2rem;
+  }
+
+  .stat-percentage-symbol {
+    font-size: 1.25rem;
+  }
+
+  .stat-caption {
+    font-size: 0.9375rem;
+  }
+}
+
+/* Animation for number counting */
+@keyframes countUp {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -45%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.stat-percentage.counting {
+  animation: countUp 0.5s ease-out;
+}
+
+/* Accessibility - Reduce motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .stat-circle-progress {
+    transition: stroke-dashoffset 0.5s linear;
+  }
+  
+  .stat-percentage.counting {
+    animation: none;
+  }
+}
+
+/* Dark mode adjustments */
+[data-theme="dark"] .stat-circle-progress {
+  stroke: #4A90E2; /* Slightly lighter blue for better contrast in dark mode */
+}

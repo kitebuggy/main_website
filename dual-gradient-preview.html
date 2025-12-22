@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dual Gradient Preview - QL Security</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* Light Mode */
+    .light-mode {
+      background: linear-gradient(to bottom right, #f0f4ff, #f8fbff, #fafbfc);
+      color: #1e3a8a;
+      padding: 4rem 2rem;
+    }
+
+    /* Dark Mode */
+    .dark-mode {
+      background: linear-gradient(to bottom right, #0f172a, #1e4a7a, #1e293b);
+      color: #e2e8f0;
+      padding: 4rem 2rem;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .mode-label {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background: rgba(44, 100, 185, 0.1);
+      border: 1px solid rgba(44, 100, 185, 0.3);
+      border-radius: 2rem;
+      font-size: 0.875rem;
+      margin-bottom: 2rem;
+      color: #4A90E2;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 3rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid rgba(44, 100, 185, 0.2);
+    }
+
+    h1 {
+      font-size: 4rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+    }
+
+    .gradient-text-light {
+      display: block;
+      background: linear-gradient(to right, #2C64B9, #4080d9, #3b82f6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .gradient-text-dark {
+      display: block;
+      background: linear-gradient(to right, #4080d9, #93c5fd, #bfdbfe);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .normal-text {
+      display: block;
+      color: inherit;
+    }
+
+    .description {
+      font-size: 1.25rem;
+      max-width: 800px;
+      margin: 0 auto 2rem;
+      opacity: 0.8;
+    }
+
+    .inverted-box-light {
+      background: linear-gradient(135deg, #0f172a, #1a2744);
+      color: white;
+      padding: 3rem;
+      border-radius: 1rem;
+      margin: 2rem auto;
+      max-width: 900px;
+      border: 1px solid rgba(44, 100, 185, 0.3);
+      box-shadow: 0 10px 40px rgba(15, 23, 42, 0.2);
+    }
+
+    .inverted-box-dark {
+      background: linear-gradient(135deg, #ffffff, #f8fafc);
+      color: #1e293b;
+      padding: 3rem;
+      border-radius: 1rem;
+      margin: 2rem auto;
+      max-width: 900px;
+      border: 1px solid rgba(44, 100, 185, 0.2);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    .inverted-box-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .inverted-box-subtitle {
+      font-size: 0.875rem;
+      margin-bottom: 2rem;
+      opacity: 0.7;
+    }
+
+    .tech-note {
+      background: rgba(44, 100, 185, 0.05);
+      border-left: 4px solid #2C64B9;
+      padding: 1rem 1.5rem;
+      margin: 2rem auto;
+      max-width: 800px;
+      text-align: left;
+      border-radius: 0.5rem;
+    }
+
+    .color-swatch {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin: 0.25rem;
+    }
+
+    .color-box {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 0.25rem;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .gradient-demo {
+      height: 4rem;
+      border-radius: 0.5rem;
+      margin: 1rem auto;
+      max-width: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1rem;
+      color: white;
+      font-weight: 600;
+    }
+
+    .logo-ticker {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .logo-placeholder {
+      width: 80px;
+      height: 40px;
+      background: rgba(128, 128, 128, 0.2);
+      border-radius: 0.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      opacity: 0.6;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.5rem;
+      }
+      .description {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- LIGHT MODE -->
+  <div class="light-mode">
+    <div class="container">
+      <div class="mode-label">☀️ LIGHT MODE</div>
+      
+      <div class="section-title">Main Hero (Gradient in Light Mode)</div>
+      
+      <h1>
+        Secure Your
+        <span class="gradient-text-light">AI-Driven Future</span>
+      </h1>
+      
+      <p class="description">
+        Expert AI security gap analysis and GRC-aligned consulting
+      </p>
+
+      <div class="tech-note">
+        <strong>✨ Gradient Applied:</strong> The text "AI-Driven Future" has a blue gradient.
+        <br><br>
+        <strong>Colors:</strong>
+        <div style="margin-top: 0.5rem;">
+          <div class="color-swatch">
+            <div class="color-box" style="background: #2C64B9;"></div>
+            <code>#2C64B9</code> → <code>#4080d9</code> → <code>#3b82f6</code>
+          </div>
+        </div>
+      </div>
+
+      <hr style="margin: 3rem auto; max-width: 800px; border: none; border-top: 2px solid rgba(44, 100, 185, 0.2);">
+
+      <div class="section-title">Certification Hero (NO Gradient in Light Mode)</div>
+      
+      <div class="inverted-box-light">
+        <h3 class="inverted-box-title normal-text">Certified & Trusted</h3>
+        <p class="inverted-box-subtitle">Industry-leading certifications and partnerships</p>
+        
+        <div class="logo-ticker">
+          <div class="logo-placeholder">Logo 1</div>
+          <div class="logo-placeholder">Logo 2</div>
+          <div class="logo-placeholder">Logo 3</div>
+          <div class="logo-placeholder">Logo 4</div>
+        </div>
+      </div>
+
+      <div class="tech-note">
+        <strong>📦 Dark Box in Light Mode:</strong> Uses the inverted hero box styling - dark background with white text.
+        <br><br>
+        <strong>Text:</strong> Normal white text, NO gradient in light mode.
+        <br><br>
+        <strong>Purpose:</strong> Creates Jason's signature high-contrast visual style.
+      </div>
+    </div>
+  </div>
+
+  <!-- DARK MODE -->
+  <div class="dark-mode">
+    <div class="container">
+      <div class="mode-label">🌙 DARK MODE</div>
+      
+      <div class="section-title">Main Hero (NO Gradient in Dark Mode)</div>
+      
+      <h1>
+        Secure Your
+        <span class="normal-text">AI-Driven Future</span>
+      </h1>
+      
+      <p class="description">
+        Expert AI security gap analysis and GRC-aligned consulting
+      </p>
+
+      <div class="tech-note" style="background: rgba(255, 255, 255, 0.05); border-color: #4080d9; color: #cbd5e1;">
+        <strong>💭 Gradient Disabled:</strong> In dark mode, the main hero text is plain white (no gradient).
+        <br><br>
+        <strong>Reason:</strong> Keeps dark mode clean and focused.
+      </div>
+
+      <hr style="margin: 3rem auto; max-width: 800px; border: none; border-top: 2px solid rgba(255, 255, 255, 0.1);">
+
+      <div class="section-title">Certification Hero (✨ Gradient in Dark Mode!)</div>
+      
+      <div class="inverted-box-dark">
+        <h3 class="inverted-box-title gradient-text-dark">Certified & Trusted</h3>
+        <p class="inverted-box-subtitle">Industry-leading certifications and partnerships</p>
+        
+        <div class="logo-ticker">
+          <div class="logo-placeholder" style="background: rgba(44, 100, 185, 0.1);">Logo 1</div>
+          <div class="logo-placeholder" style="background: rgba(44, 100, 185, 0.1);">Logo 2</div>
+          <div class="logo-placeholder" style="background: rgba(44, 100, 185, 0.1);">Logo 3</div>
+          <div class="logo-placeholder" style="background: rgba(44, 100, 185, 0.1);">Logo 4</div>
+        </div>
+      </div>
+
+      <div class="tech-note" style="background: rgba(255, 255, 255, 0.05); border-color: #4080d9; color: #cbd5e1;">
+        <strong>✨ Gradient Applied:</strong> The title "Certified & Trusted" now has a light blue gradient!
+        <br><br>
+        <strong>Colors:</strong>
+        <div style="margin-top: 0.5rem;">
+          <div class="color-swatch">
+            <div class="color-box" style="background: #4080d9;"></div>
+            <code style="color: #93c5fd;">#4080d9</code> → <code style="color: #93c5fd;">#93c5fd</code> → <code style="color: #93c5fd;">#bfdbfe</code>
+          </div>
+        </div>
+        <br>
+        <strong>Gradient Preview:</strong>
+        <div class="gradient-demo" style="background: linear-gradient(to right, #4080d9, #93c5fd, #bfdbfe); color: #0f172a;">
+          <span>#4080d9</span>
+          <span>→</span>
+          <span>#93c5fd</span>
+          <span>→</span>
+          <span>#bfdbfe</span>
+        </div>
+        <br>
+        <strong>Box Colors:</strong> White box with dark text (inverted from light mode).
+        <br><br>
+        <strong>Why:</strong> Restores the previous white-on-blue effect, but enhanced with a gradient for extra visual polish in dark mode!
+      </div>
+    </div>
+  </div>
+</body>
+</html>

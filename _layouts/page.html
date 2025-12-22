@@ -4,7 +4,8 @@ layout: default
 
 <article class="page-template">
   
-  <section class="relative overflow-hidden bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900">
+  <!-- Hero section - dark background in both light and dark mode -->
+  <section class="relative pt-8 overflow-hidden bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900">
     <div class="absolute inset-0 overflow-hidden">
       <div class="absolute w-96 h-96 bg-[#2C64B9]/20 rounded-full blur-3xl -top-48 -left-48"></div>
       <div class="absolute w-96 h-96 bg-[#5B7EC8]/10 rounded-full blur-3xl -top-48 -right-48"></div>
@@ -39,6 +40,7 @@ layout: default
     </div>
   </section>
 
+  <!-- Main content section - theme-aware -->
   <section class="py-12 lg:py-16 relative">
     <div class="container mx-auto px-4">
       <div class="max-w-4xl mx-auto">
@@ -47,11 +49,11 @@ layout: default
         <div class="grid lg:grid-cols-4 gap-8">
           
           <aside class="lg:col-span-1">
-            <div class="bg-slate-900/50 backdrop-blur border border-[#2C64B9]/20 rounded-xl p-6 sticky top-24">
-              <h3 class="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Contents</h3>
+            <div class="card backdrop-blur rounded-xl p-6 sticky top-24">
+              <h3 class="text-theme-primary font-semibold mb-4 text-sm uppercase tracking-wider">Contents</h3>
               <nav class="space-y-2">
                 {% for section in page.sections %}
-                <a href="#{{ section.id }}" class="block text-sm text-blue-200 hover:text-blue-400 transition-colors py-1">
+                <a href="#{{ section.id }}" class="block text-sm text-theme-secondary hover:text-theme-accent transition-colors py-1">
                   {{ section.title }}
                 </a>
                 {% endfor %}
@@ -59,16 +61,16 @@ layout: default
             </div>
           </aside>
 
-          <div class="lg:col-span-3 prose prose-invert prose-blue max-w-none">
-            <div class="bg-slate-900/30 backdrop-blur border border-[#2C64B9]/10 rounded-2xl p-8 lg:p-12">
+          <div class="lg:col-span-3 page-content prose max-w-none">
+            <div class="card backdrop-blur rounded-2xl p-8 lg:p-12">
               {{ content }}
             </div>
           </div>
           
         </div>
         {% else %}
-        <div class="prose prose-invert prose-blue max-w-none">
-          <div class="bg-slate-900/30 backdrop-blur border border-[#2C64B9]/10 rounded-2xl p-8 lg:p-12">
+        <div class="page-content prose max-w-none">
+          <div class="card backdrop-blur rounded-2xl p-8 lg:p-12">
             {{ content }}
           </div>
         </div>
