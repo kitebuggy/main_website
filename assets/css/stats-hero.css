@@ -47,12 +47,28 @@
   opacity: 0.2;
 }
 
-/* Progress circle - uses brand color */
+/* Progress circle - base styles */
 .stat-circle-progress {
-  stroke: #2C64B9;
   stroke-dasharray: 502.65; /* 2 * PI * 80 (radius) */
   stroke-dashoffset: 502.65; /* Start completely hidden */
-  transition: stroke-dashoffset 2s cubic-bezier(0.4, 0, 0.2, 1);
+  /* No transition - animated via JavaScript for precise control */
+}
+
+/* Color variations for different stats */
+.stat-color-blue {
+  stroke: #2C64B9; /* Brand blue */
+}
+
+.stat-color-cyan {
+  stroke: #00BCD4; /* Vibrant cyan */
+}
+
+.stat-color-purple {
+  stroke: #7B68EE; /* Medium slate blue/purple */
+}
+
+.stat-color-light-blue {
+  stroke: #4A90E2; /* Light brand blue */
 }
 
 /* Animated state - applied via JavaScript */
@@ -157,7 +173,19 @@
   }
 }
 
-/* Dark mode adjustments */
-[data-theme="dark"] .stat-circle-progress {
-  stroke: #4A90E2; /* Slightly lighter blue for better contrast in dark mode */
+/* Dark mode adjustments - slightly lighter versions for better contrast */
+[data-theme="dark"] .stat-color-blue {
+  stroke: #4A90E2;
+}
+
+[data-theme="dark"] .stat-color-cyan {
+  stroke: #26C6DA; /* Slightly lighter cyan */
+}
+
+[data-theme="dark"] .stat-color-purple {
+  stroke: #9575CD; /* Lighter purple */
+}
+
+[data-theme="dark"] .stat-color-light-blue {
+  stroke: #64B5F6; /* Even lighter blue */
 }

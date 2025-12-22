@@ -8,7 +8,7 @@
 
   // Configuration
   const ANIMATION_DURATION = 2000; // milliseconds
-  const COUNT_DURATION = 2000; // milliseconds
+  const STAGGER_DELAY = 2500; // milliseconds between each chart starting
   const CIRCLE_CIRCUMFERENCE = 502.65; // 2 * PI * 80 (radius)
 
   /**
@@ -25,8 +25,16 @@
         (entries) => {
           entries.forEach(entry => {
             if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
-              animateStatItem(entry.target);
-              entry.target.classList.add('animated');
+              // Find the index of this stat item for staggered animation
+              const allItems = document.querySelectorAll('.stat-item');
+              const index = Array.from(allItems).indexOf(entry.target);
+              const delay = index * STAGGER_DELAY;
+              
+              // Animate with delay
+              setTimeout(() => {
+                animateStatItem(entry.target);
+                entry.target.classList.add('animated');
+              }, delay);
             }
           });
         },
@@ -38,13 +46,16 @@
 
       statItems.forEach(item => observer.observe(item));
     } else {
-      // Fallback for browsers without Intersection Observer
-      statItems.forEach(item => animateStatItem(item));
+      // Fallback for browsers without Intersection Observer - still stagger them
+      statItems.forEach((item, index) => {
+        const delay = index * STAGGER_DELAY;
+        setTimeout(() => animateStatItem(item), delay);
+      });
     }
   }
 
   /**
-   * Animate a single stat item (chart + number)
+   * Animate a single stat item (chart + number) in perfect sync
    */
   function animateStatItem(item) {
     const progressCircle = item.querySelector('.stat-circle-progress');
@@ -52,76 +63,45 @@
     const numberElement = item.querySelector('.stat-percentage-number');
     const targetPercentage = parseInt(item.dataset.percentage) || 0;
 
-    // Animate the circular progress
-    animateCircle(progressCircle, targetPercentage);
-
-    // Animate the number count-up
-    animateNumber(numberElement, percentageElement, targetPercentage);
-  }
-
-  /**
-   * Animate the circular progress from 0 to target percentage
-   */
-  function animateCircle(circle, targetPercentage) {
-    if (!circle) return;
-
-    // Calculate the stroke-dashoffset for the target percentage
-    // Formula: circumference - (circumference * percentage / 100)
-    const targetOffset = CIRCLE_CIRCUMFERENCE - (CIRCLE_CIRCUMFERENCE * targetPercentage / 100);
-
-    // Use requestAnimationFrame for smooth animation
-    const startTime = performance.now();
-    const startOffset = CIRCLE_CIRCUMFERENCE;
-
-    function updateCircle(currentTime) {
-      const elapsed = currentTime - startTime;
-      const progress = Math.min(elapsed / ANIMATION_DURATION, 1);
-      
-      // Easing function (ease-out cubic)
-      const eased = 1 - Math.pow(1 - progress, 3);
-      
-      const currentOffset = startOffset - ((startOffset - targetOffset) * eased);
-      circle.style.strokeDashoffset = currentOffset;
-
-      if (progress < 1) {
-        requestAnimationFrame(updateCircle);
-      } else {
-        circle.classList.add('animated');
-      }
-    }
-
-    requestAnimationFrame(updateCircle);
-  }
-
-  /**
-   * Animate the number counting from 0 to target percentage
-   */
-  function animateNumber(numberElement, percentageElement, targetPercentage) {
-    if (!numberElement || !percentageElement) return;
+    if (!progressCircle || !numberElement || !percentageElement) return;
 
     percentageElement.classList.add('counting');
     
     const startTime = performance.now();
-    const startValue = 0;
 
-    function updateNumber(currentTime) {
+    // Single animation loop for both circle and number
+    function updateAnimation(currentTime) {
       const elapsed = currentTime - startTime;
-      const progress = Math.min(elapsed / COUNT_DURATION, 1);
+      const progress = Math.min(elapsed / ANIMATION_DURATION, 1);
       
-      // Easing function (ease-out cubic)
+      // Easing function (ease-out cubic) - same for both animations
       const eased = 1 - Math.pow(1 - progress, 3);
       
-      const currentValue = Math.round(startValue + (targetPercentage - startValue) * eased);
-      numberElement.textContent = currentValue;
+      // Calculate current percentage (this is the SAME value for both)
+      const currentPercentage = targetPercentage * eased;
+      
+      // Update number - round for display
+      numberElement.textContent = Math.round(currentPercentage);
+      
+      // Update circle - use exact percentage (not rounded)
+      // The circle starts "full hidden" at circumference, and reduces toward 0
+      // To show X%, we need offset = circumference * (100 - X) / 100
+      const percentToHide = 100 - currentPercentage;
+      const currentOffset = CIRCLE_CIRCUMFERENCE * (percentToHide / 100);
+      progressCircle.style.strokeDashoffset = currentOffset;
 
       if (progress < 1) {
-        requestAnimationFrame(updateNumber);
+        requestAnimationFrame(updateAnimation);
       } else {
+        // Ensure final values are exact
+        const finalOffset = CIRCLE_CIRCUMFERENCE * (100 - targetPercentage) / 100;
+        progressCircle.style.strokeDashoffset = finalOffset;
         numberElement.textContent = targetPercentage;
+        progressCircle.classList.add('animated');
       }
     }
 
-    requestAnimationFrame(updateNumber);
+    requestAnimationFrame(updateAnimation);
   }
 
   // Initialize when DOM is ready

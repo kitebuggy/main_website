@@ -57,7 +57,20 @@ Each chart consists of:
 - **Trigger**: Animations start when 30% of the section is visible in viewport
 
 ### Color Scheme
-- **Progress Circle**: `#2C64B9` (brand blue) in light mode, `#4A90E2` (lighter blue) in dark mode
+Each chart uses a distinct color for visual interest:
+
+**Light Mode:**
+- **Chart 1 (70%)**: `#2C64B9` - Brand Blue (your signature color)
+- **Chart 2 (71%)**: `#00BCD4` - Vibrant Cyan (high energy)
+- **Chart 3 (46%)**: `#7B68EE` - Medium Slate Blue/Purple (sophistication)
+- **Chart 4 (31%)**: `#4A90E2` - Light Blue (brand complement)
+
+**Dark Mode:**
+- **Chart 1**: `#4A90E2` - Lighter blue for contrast
+- **Chart 2**: `#26C6DA` - Lighter cyan for visibility
+- **Chart 3**: `#9575CD` - Lighter purple for contrast
+- **Chart 4**: `#64B5F6` - Even lighter blue for visibility
+
 - **Background Circle**: Uses theme's border color at 20% opacity
 - **Text**: Uses theme's text color variables for proper light/dark mode support
 
