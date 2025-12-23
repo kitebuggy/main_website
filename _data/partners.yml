@@ -1,0 +1,43 @@
+- name: "Claude"
+  logo: "/assets/images/partners/Anthropic_symbol.svg"
+  description: "Anthropic"
+  
+- name: "Bedrock, SageMaker, Nova"
+  logo: "/assets/images/partners/aws.svg"
+  description: "AWS"
+  
+- name: "deepseek"
+  logo: "/assets/images/partners/deepseek_symbol.svg"
+  description: "deepseek"
+    
+- name: "CalypsoAI"
+  logo: "/assets/images/partners/f5.svg"
+  description: "f5"
+
+- name: "Gemini, Veo"
+  logo: "/assets/images/partners/Google_symbol.svg"
+  description: "Google"
+    
+- name: "Llama"
+  logo: "/assets/images/partners/Meta_symbol.svg"
+  description: "Meta"
+    
+- name: "Copilot, Azure AI"
+  logo: "/assets/images/partners/Microsoft_symbol.svg"
+  description: "Microsoft"
+  
+- name: "ChatGPT"
+  logo: "/assets/images/partners/OpenAI_symbol.svg"
+  description: "OpenAI"
+  
+- name: "TotalAI, AI Fabric"
+  logo: "/assets/images/partners/Qualys_symbol.svg"
+  description: "Qualys"
+  
+- name: "Risk Ledger"
+  logo: "/assets/images/partners/Risk_Ledger_symbol.svg"
+  description: "Risk Ledger"
+  
+- name: "Grok"
+  logo: "/assets/images/partners/xAI.svg"
+  description: "xAI"

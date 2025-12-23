@@ -7,8 +7,8 @@
   'use strict';
 
   // Configuration
-  const ANIMATION_DURATION = 2000; // milliseconds
-  const STAGGER_DELAY = 2500; // milliseconds between each chart starting
+  const ANIMATION_DURATION = 1500; // milliseconds
+  const STAGGER_DELAY = 1800; // milliseconds between each chart starting
   const CIRCLE_CIRCUMFERENCE = 502.65; // 2 * PI * 80 (radius)
 
   /**

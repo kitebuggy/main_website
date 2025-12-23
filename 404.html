@@ -2,44 +2,80 @@
 layout: default
 title: "404 - Page Not Found | QL Security"
 permalink: /404.html
+
+# ============================================
+# 404 PAGE CONTENT
+# All content is now editable here in YAML
+# ============================================
+
+error_page:
+  # Large 404 Number
+  error_code: "404"
+  
+  # Main heading
+  heading: "Page Not Found"
+  
+  # Description text
+  description: "The page you're looking for doesn't exist or has been moved. Let's get you back to secure territory."
+  
+  # Primary button (home)
+  primary_button:
+    text: "Back to Home"
+    link: "/"
+    icon: "home"
+  
+  # Secondary button (contact)
+  secondary_button:
+    text: "Contact Us"
+    link: "/contact"
+    icon: "email"
 ---
 
 <section class="relative pt-8 pb-20 min-h-[80vh] flex items-center">
   <div class="container mx-auto px-4 sm:px-6 lg:px-8 pt-32 lg:pt-40">
     <div class="max-w-2xl mx-auto text-center">
-    <!-- 404 Large Display -->
-    <div class="mb-8">
-      <h1 class="text-9xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#2C64B9] to-[#4080d9] mb-4">
-        404
-      </h1>
-      <div class="h-1 w-32 bg-gradient-to-r from-[#2C64B9] to-[#4080d9] mx-auto mb-8"></div>
-    </div>
-
-    <!-- Error Message -->
-    <div class="space-y-6 mb-12">
-      <h2 class="text-theme-primary text-3xl sm:text-4xl font-bold">
-        Page Not Found
-      </h2>
-      <p class="text-theme-secondary text-xl max-w-xl mx-auto">
-        The page you're looking for doesn't exist or has been moved. Let's get you back to secure territory.
-      </p>
-    </div>
-
-    <!-- Action Buttons -->
-    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-      <a href="/" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-[#2C64B9] to-[#3d75c3] text-white font-semibold rounded-lg hover:from-[#2454a0] hover:to-[#2C64B9] transition-all duration-300 shadow-lg hover:shadow-[#2C64B9]/50 transform hover:scale-105">
-        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
-        </svg>
-        Back to Home
-      </a>
       
-      <a href="/contact" class="btn-secondary w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 font-semibold rounded-lg transition-all duration-300 border border-theme-accent transform hover:scale-105">
-        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-        </svg>
-        Contact Us
-      </a>
+      {%- comment -%} 404 Large Display {%- endcomment -%}
+      <div class="mb-8">
+        <h1 class="text-9xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#2C64B9] to-[#4080d9] mb-4">
+          {{ page.error_page.error_code }}
+        </h1>
+        <div class="h-1 w-32 bg-gradient-to-r from-[#2C64B9] to-[#4080d9] mx-auto mb-8"></div>
+      </div>
+
+      {%- comment -%} Error Message {%- endcomment -%}
+      <div class="space-y-6 mb-12">
+        <h2 class="text-theme-primary text-3xl sm:text-4xl font-bold">
+          {{ page.error_page.heading }}
+        </h2>
+        <p class="text-theme-secondary text-xl max-w-xl mx-auto">
+          {{ page.error_page.description }}
+        </p>
+      </div>
+
+      {%- comment -%} Action Buttons {%- endcomment -%}
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+        
+        {%- comment -%} Primary Button {%- endcomment -%}
+        <a href="{{ page.error_page.primary_button.link }}" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-[#2C64B9] to-[#3d75c3] text-white font-semibold rounded-lg hover:from-[#2454a0] hover:to-[#2C64B9] transition-all duration-300 shadow-lg hover:shadow-[#2C64B9]/50 transform hover:scale-105">
+          {% if page.error_page.primary_button.icon == "home" %}
+          <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+          </svg>
+          {% endif %}
+          {{ page.error_page.primary_button.text }}
+        </a>
+        
+        {%- comment -%} Secondary Button {%- endcomment -%}
+        <a href="{{ page.error_page.secondary_button.link }}" class="btn-secondary w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 font-semibold rounded-lg transition-all duration-300 border border-theme-accent transform hover:scale-105">
+          {% if page.error_page.secondary_button.icon == "email" %}
+          <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+          </svg>
+          {% endif %}
+          {{ page.error_page.secondary_button.text }}
+        </a>
+      </div>
     </div>
   </div>
 </section>

@@ -1,0 +1,49 @@
+<!-- Standards & Regulations Ticker Component -->
+<section class="py-16 relative">
+  <div class="container mx-auto px-4">
+    <div class="max-w-6xl mx-auto bg-white dark:bg-slate-800 rounded-2xl p-8 lg:p-12 shadow-lg">
+      
+      {% if include.title %}
+      <h3 class="text-center text-xl text-slate-700 dark:text-slate-200 font-semibold mb-2">{{ include.title }}</h3>
+      {% else %}
+      <h3 class="text-center text-xl text-slate-700 dark:text-slate-200 font-semibold mb-2">Standards & Frameworks</h3>
+      {% endif %}
+      
+      {% if include.subtitle %}
+      <p class="text-center text-slate-500 dark:text-slate-400 text-sm mb-8">{{ include.subtitle }}</p>
+      {% else %}
+      <p class="text-center text-slate-500 dark:text-slate-400 text-sm mb-8">Expert guidance across industry-leading standards</p>
+      {% endif %}
+      
+      <div class="overflow-hidden">
+        <div class="ticker-track flex gap-12 items-center justify-center" data-speed="{{ include.speed | default: '45' }}">
+          
+          <!-- First set of standards -->
+          {% assign standards = include.standards | default: site.data.standards %}
+          {% for standard in standards %}
+          <div class="ticker-item flex-shrink-0">
+            <span class="standards-badge">{{ standard.name }}</span>
+          </div>
+          {% endfor %}
+
+          <!-- Duplicate set for seamless loop -->
+          {% for standard in standards %}
+          <div class="ticker-item flex-shrink-0">
+            <span class="standards-badge">{{ standard.name }}</span>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const tracks = document.querySelectorAll('.ticker-track');
+  tracks.forEach(track => {
+    const speed = track.dataset.speed || 45;
+    track.style.setProperty('--ticker-speed', speed + 's');
+  });
+});
+</script>

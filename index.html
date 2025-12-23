@@ -2,139 +2,228 @@
 layout: default
 title: Secure Your AI-Driven Future
 description: Expert AI security gap analysis and GRC-aligned consulting
+
+# ============================================
+# MAIN HERO SECTION
+# ============================================
+hero:
+  badge: "AI Security & GRC Innovation"
+  title: "Secure Your"
+  title_gradient: "AI-Driven Future"
+  description: "Expert AI security gap analysis and GRC-aligned consulting to identify vulnerabilities, ensure compliance, and build resilient security frameworks for tomorrow's threats."
+  cta_primary: "Schedule Free Consultation"
+  cta_primary_link: "/contact/"
+  cta_secondary: "Download AI Security Guide"
+  cta_secondary_link: "/resources/ai-security-guide.pdf"
+  trust_badges: true
+
+# ============================================
+# SERVICES SECTION
+# ============================================
+services:
+  title: "Our Services"
+  subtitle: "Comprehensive security innovation focused on AI risks and regulatory compliance"
+  
+  cards:
+    - title: "AI Security Gap Analysis"
+      description: "Systematic evaluation of your AI security posture across legal, governance, and data domains—delivering a prioritised roadmap to close critical gaps"
+      icon: "search-checklist"
+      link: "/services/ai-security/"
+      features:
+        - "Legal & Regulatory Scope"
+        - "Governance & Ownership Review"
+        - "AI Discovery"
+        - "TPRM Review"
+        - "Data Risk"
+    
+    - title: "AI Security Retainer"
+      description: "Ongoing strategic partnership providing continuous risk oversight, governance expertise, and control framework evolution—ensuring your AI security stays ahead of emerging threats"
+      icon: "shield"
+      link: "/services/grc/"
+      features:
+        - "Continuous Risk Oversight"
+        - "Governance & Decision Support"
+        - "Control Design & Improvement"
+        - "Internal Audit Support"
+    
+    - title: "AI Security Projects"
+      description: "Tactical security projects delivering measurable protection: penetration testing that finds real vulnerabilities, guardrails that actually block attacks, configurations that close exploitable gaps"
+      icon: "tools"
+      link: "/services/compliance/"
+      features:
+        - "AI Penetration Testing"
+        - "LLM Guardrail Implementation"
+        - "Firewall Configuration"
+        - "MCP Server Security"
+      
+    - title: "AI Advisory"
+      description: "Leadership-level advisory for AI security strategy, governance decision-making, programme management, and organisational capability development"
+      icon: "compass"
+      link: "/services/compliance/"
+      features:
+        - "AI Trusted Advisor"
+        - "Governance & Decision Support"
+        - "AI Project Management"
+        - "Training & Education"
+
+# ============================================
+# STANDARDS TICKER SECTION
+# ============================================
+standards_ticker:
+  title: "Standards & Frameworks"
+  subtitle: "Expert guidance across industry-leading standards and regulations"
+  speed: 45
+
+# ============================================
+# CTA SECTION
+# ============================================
+cta:
+  title: "Ready to Secure Your AI Future?"
+  description: "Get a free AI security gap analysis and discover how we can help you build a resilient, compliant security framework."
+  cta_primary: "Book Free Consultation"
+  cta_primary_link: "/contact/"
+  cta_secondary: "Download Service Overview"
+  cta_secondary_link: "/resources/"
+
+# ============================================
+# CERTIFICATIONS SECTIONS (optional display)
+# ============================================
+certifications:
+  title: "We Work With"
+  subtitle: "Trusted And Industry-Leading Partners"
+  show_descriptions: true
+  
+  # Which certification display styles to show (comment out to hide)
+  display_styles:
+    - glassmorphic
+    - cards
+    - white
+    - ticker
+    - white_ticker
+  
+  white_ticker:
+    title: "Certified & Trusted"
+    subtitle: "Industry-leading certifications and partnerships"
+    speed: 35
+    show_pause_hint: true
 ---
 
+{%- comment -%}
+============================================
+MAIN HERO
+============================================
+{%- endcomment -%}
 {% include components/hero.html 
-  badge="AI Security & GRC Innovation"
-  title="Secure Your"
-  title_gradient="AI-Driven Future"
-  description="Expert AI security gap analysis and GRC-aligned consulting to identify vulnerabilities, ensure compliance, and build resilient security frameworks for tomorrow's threats."
-  cta_primary="Schedule Free Consultation"
-  cta_primary_link="/contact/"
-  cta_secondary="Download AI Security Guide"
-  cta_secondary_link="/resources/ai-security-guide.pdf"
-  trust_badges=true
+  badge=page.hero.badge
+  title=page.hero.title
+  title_gradient=page.hero.title_gradient
+  description=page.hero.description
+  cta_primary=page.hero.cta_primary
+  cta_primary_link=page.hero.cta_primary_link
+  cta_secondary=page.hero.cta_secondary
+  cta_secondary_link=page.hero.cta_secondary_link
+  trust_badges=page.hero.trust_badges
 %}
 
-<!-- AI Adoption Stats Hero -->
+{%- comment -%}
+============================================
+AI ADOPTION STATS
+============================================
+{%- endcomment -%}
 {% include components/hero-ai-stats.html %}
 
-<!-- Services Section -->
+{%- comment -%}
+============================================
+SERVICES SECTION
+============================================
+{%- endcomment -%}
 <section class="section-bg-secondary py-20 relative">
   <div class="container mx-auto px-4">
     <div class="text-center mb-16">
-      <h2 class="text-theme-primary text-4xl font-bold mb-4">Our Services</h2>
+      <h2 class="text-theme-primary text-4xl font-bold mb-4">{{ page.services.title }}</h2>
       <p class="text-theme-secondary text-xl max-w-2xl mx-auto">
-        Comprehensive security innovation focused on AI risks and regulatory compliance
+        {{ page.services.subtitle }}
       </p>
     </div>
 
     <div class="grid lg:grid-cols-3 gap-8">
-      <!-- Service Card 1 -->
+      {% for service in page.services.cards %}
       <div class="service-card group relative p-8 backdrop-blur rounded-2xl transition-all hover:shadow-xl hover:-translate-y-1">
         <div class="service-card-icon inline-flex p-3 rounded-lg mb-4 transition-colors">
+          {% if service.icon == "search-checklist" %}
           <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+            <circle cx="11" cy="11" r="8" stroke-width="2"/>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m21 21-4.35-4.35"/>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 11h6M11 8v6"/>
           </svg>
-        </div>
-        <h3 class="service-card-title text-2xl font-bold mb-3">AI Security Gap Analysis</h3>
-        <p class="service-card-description mb-6">Comprehensive assessment of your AI systems, identifying vulnerabilities and providing actionable recommendations</p>
-        <div class="space-y-2 mb-6">
-          <div class="service-card-feature flex items-center gap-2 text-sm">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-            <span>LLM Security Review</span>
-          </div>
-          <div class="service-card-feature flex items-center gap-2 text-sm">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-            <span>AI Model Risk Assessment</span>
-          </div>
-          <div class="service-card-feature flex items-center gap-2 text-sm">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-            <span>Data Privacy Analysis</span>
-          </div>
-        </div>
-        <a href="{{ '/services/ai-security/' | relative_url }}" class="service-card-link inline-flex items-center gap-2 transition-colors font-semibold">
-          Learn more
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
-        </a>
-      </div>
-
-      <!-- Service Card 2 -->
-      <div class="service-card group relative p-8 backdrop-blur rounded-2xl transition-all hover:shadow-xl hover:-translate-y-1">
-        <div class="service-card-icon inline-flex p-3 rounded-lg mb-4 transition-colors">
+          {% elsif service.icon == "shield" %}
           <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
           </svg>
-        </div>
-        <h3 class="service-card-title text-2xl font-bold mb-3">GRC Consulting</h3>
-        <p class="service-card-description mb-6">Governance, Risk, and Compliance services aligned with industry frameworks and best practices</p>
-        <div class="space-y-2 mb-6">
-          <div class="service-card-feature flex items-center gap-2 text-sm">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-            <span>ISO 27001 Implementation</span>
-          </div>
-          <div class="service-card-feature flex items-center gap-2 text-sm">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-            <span>Risk Assessment</span>
-          </div>
-          <div class="service-card-feature flex items-center gap-2 text-sm">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-            <span>Policy Development</span>
-          </div>
-        </div>
-        <a href="{{ '/services/grc/' | relative_url }}" class="service-card-link inline-flex items-center gap-2 transition-colors font-semibold">
-          Learn more
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
-        </a>
-      </div>
-
-      <!-- Service Card 3 -->
-      <div class="service-card group relative p-8 backdrop-blur rounded-2xl transition-all hover:shadow-xl hover:-translate-y-1">
-        <div class="service-card-icon inline-flex p-3 rounded-lg mb-4 transition-colors">
+          {% elsif service.icon == "tools" %}
           <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
           </svg>
+          {% elsif service.icon == "compass" %}
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10" stroke-width="2"/>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6l1.5 6-1.5 6-1.5-6z" fill="currentColor" fill-opacity="0.2" transform="rotate(22.5 12 12)"/>
+            <circle cx="12" cy="12" r="1" fill="currentColor"/>
+          </svg>
+          {% endif %}
         </div>
-        <h3 class="service-card-title text-2xl font-bold mb-3">Compliance Assessment</h3>
-        <p class="service-card-description mb-6">Thorough evaluation of your compliance posture against GDPR, SOC 2, and other regulations</p>
+        <h3 class="service-card-title text-2xl font-bold mb-3">{{ service.title }}</h3>
+        <p class="service-card-description mb-6">{{ service.description }}</p>
         <div class="space-y-2 mb-6">
+          {% for feature in service.features %}
           <div class="service-card-feature flex items-center gap-2 text-sm">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-            <span>GDPR Compliance</span>
+            <span>{{ feature }}</span>
           </div>
-          <div class="service-card-feature flex items-center gap-2 text-sm">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-            <span>SOC 2 Readiness</span>
-          </div>
-          <div class="service-card-feature flex items-center gap-2 text-sm">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-            <span>Gap Analysis</span>
-          </div>
+          {% endfor %}
         </div>
-        <a href="{{ '/services/compliance/' | relative_url }}" class="service-card-link inline-flex items-center gap-2 transition-colors font-semibold">
+        <a href="{{ service.link | relative_url }}" class="service-card-link inline-flex items-center gap-2 transition-colors font-semibold">
           Learn more
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
         </a>
       </div>
+      {% endfor %}
     </div>
   </div>
 </section>
 
-<!-- CTA Section -->
+{%- comment -%}
+============================================
+STANDARDS TICKER
+============================================
+{%- endcomment -%}
+{% include components/standards-ticker.html 
+  title=page.standards_ticker.title
+  subtitle=page.standards_ticker.subtitle
+  speed=page.standards_ticker.speed
+%}
+
+{%- comment -%}
+============================================
+CTA SECTION
+============================================
+{%- endcomment -%}
 <section class="py-20">
   <div class="container mx-auto px-4">
     <div class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-[#2C64B9] via-[#3d75c3] to-[#4A90E2] p-12 lg:p-16">
       <div class="relative z-10 max-w-3xl">
-        <h2 class="text-4xl font-bold text-white mb-4">Ready to Secure Your AI Future?</h2>
+        <h2 class="text-4xl font-bold text-white mb-4">{{ page.cta.title }}</h2>
         <p class="text-xl text-blue-100 mb-8">
-          Get a free AI security gap analysis and discover how we can help you build a resilient, compliant security framework.
+          {{ page.cta.description }}
         </p>
         <div class="flex flex-col sm:flex-row gap-4">
-          <a href="{{ '/contact/' | relative_url }}" class="px-8 py-4 bg-white text-[#2C64B9] rounded-lg hover:bg-blue-50 transition-all font-semibold shadow-lg">
-            Book Free Consultation
+          <a href="{{ page.cta.cta_primary_link | relative_url }}" class="px-8 py-4 bg-white text-[#2C64B9] rounded-lg hover:bg-blue-50 transition-all font-semibold shadow-lg">
+            {{ page.cta.cta_primary }}
           </a>
-          <a href="{{ '/resources/' | relative_url }}" class="px-8 py-4 bg-transparent border-2 border-white text-white rounded-lg hover:bg-white/10 transition-all font-semibold">
-            Download Service Overview
+          <a href="{{ page.cta.cta_secondary_link | relative_url }}" class="px-8 py-4 bg-transparent border-2 border-white text-white rounded-lg hover:bg-white/10 transition-all font-semibold">
+            {{ page.cta.cta_secondary }}
           </a>
         </div>
       </div>
@@ -144,38 +233,50 @@ description: Expert AI security gap analysis and GRC-aligned consulting
   </div>
 </section>
 
-<!-- Logo cards -->
+{%- comment -%}
+============================================
+CERTIFICATIONS SECTIONS (Optional Display)
+Comment out sections below if not needed
+============================================
+{%- endcomment -%}
+
+{% if page.certifications.display_styles contains "glassmorphic" %}
 {% include components/hero-glassmorphic.html 
-  title="Certifications & Partnerships"
-  subtitle="Trusted standards and industry-leading partners"
-  show_descriptions="true"
+  title=page.certifications.title
+  subtitle=page.certifications.subtitle
+  show_descriptions=page.certifications.show_descriptions
 %}
+{% endif %}
 
-<!-- Logo cards -->
+{% if page.certifications.display_styles contains "cards" %}
 {% include components/hero-cards.html 
-  title="Certifications & Partnerships"
-  subtitle="Trusted standards and industry-leading partners"
-  show_descriptions="true"
+  title=page.certifications.title
+  subtitle=page.certifications.subtitle
+  show_descriptions=page.certifications.show_descriptions
 %}
+{% endif %}
 
-<!-- Logo cards -->
+{% if page.certifications.display_styles contains "white" %}
 {% include components/hero-white.html 
-  title="Certifications & Partnerships"
-  subtitle="Trusted standards and industry-leading partners"
-  show_descriptions="true"
+  title=page.certifications.title
+  subtitle=page.certifications.subtitle
+  show_descriptions=page.certifications.show_descriptions
 %}
+{% endif %}
 
-<!-- Logo cards -->
+{% if page.certifications.display_styles contains "ticker" %}
 {% include components/hero-ticker.html 
-  title="Certifications & Partnerships"
-  subtitle="Trusted standards and industry-leading partners"
-  show_descriptions="true"
+  title=page.certifications.title
+  subtitle=page.certifications.subtitle
+  show_descriptions=page.certifications.show_descriptions
 %}
+{% endif %}
 
-<!-- White Box with Ticker -->
+{% if page.certifications.display_styles contains "white_ticker" %}
 {% include components/hero-white-ticker.html 
-  title="Certified & Trusted"
-  subtitle="Industry-leading certifications and partnerships"
-  speed="35"
-  show_pause_hint=true
+  title=page.certifications.white_ticker.title
+  subtitle=page.certifications.white_ticker.subtitle
+  speed=page.certifications.white_ticker.speed
+  show_pause_hint=page.certifications.white_ticker.show_pause_hint
 %}
+{% endif %}

@@ -1,0 +1,36 @@
+# Standards & Regulations Data
+# This file contains the list of standards/frameworks for the standards ticker
+# Edit this file to add, remove, or modify standards
+
+- name: "Cyber Essentials"
+  category: "UK Cybersecurity"
+  
+- name: "ISO 9001"
+  category: "Quality Management"
+  
+- name: "ISO 14001"
+  category: "Environmental Management"
+  
+- name: "ISO 27001"
+  category: "Information Security"
+  
+- name: "ISO 42001"
+  category: "AI Management"
+  
+- name: "The EU AI Act"
+  category: "AI Regulation"
+  
+- name: "UK/EU GDPR"
+  category: "Data Protection"
+  
+- name: "NHS DSPT"
+  category: "Healthcare Security"
+  
+- name: "NIS2 Directive"
+  category: "Network Security"
+  
+- name: "OWASP Top 10"
+  category: "Best Practice"
+  
+- name: "SOC 2"
+  category: "Trust Services"

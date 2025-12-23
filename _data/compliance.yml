@@ -1,0 +1,40 @@
+- name: "Anthropic Symbol"
+  logo: "/assets/images/Anthropic_symbol.svg"
+  description: "Anthropic"
+  
+- name: "AWS"
+  logo: "/assets/images/aws.svg"
+  description: "AWS"
+  
+- name: "F5"
+  logo: "/assets/images/f5.svg"
+  description: "f5"
+
+- name: "Google Symbol"
+  logo: "/assets/images/Google_symbol.svg"
+  description: "Google"
+    
+- name: "Microsoft Symbol"
+  logo: "/assets/images/Microsoft_symbol.svg"
+  description: "Microsoft"
+  
+- name: "OpenAI Symbol"
+  logo: "/assets/images/OpenAI_symbol.svg"
+  description: "OpenAI"
+  
+- name: "Qualys Symbol"
+  logo: "/assets/images/Qualys_symbol.svg"
+  description: "Qualys"
+  
+- name: "xAI"
+  logo: "/assets/images/xAI.svg"
+  description: "xAI"
+  
+- name: "GDPR Compliant"
+  logo: "/assets/images/certifications/gdpr.png"
+  description: "Data Protection Standards"
+  
+- name: "SOC 2 Type II"
+  logo: "/assets/images/certifications/soc2.png"
+  description: "Security & Availability"
+  

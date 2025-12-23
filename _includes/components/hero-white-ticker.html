@@ -18,25 +18,25 @@
       <div class="overflow-hidden">
         <div class="ticker-track flex gap-12 items-center justify-center" data-speed="{{ include.speed | default: '40' }}">
           
-          {% for cert in site.data.certifications %}
+          {% for partner in site.data.partners %}
           <div class="ticker-item flex-shrink-0 group cursor-pointer">
             <img 
-              src="{{ cert.logo }}" 
-              alt="{{ cert.name }}" 
+              src="{{ partner.logo }}" 
+              alt="{{ partner.name }}" 
               class="h-20 w-auto grayscale group-hover:grayscale-0 transition-all"
-              title="{{ cert.name }}"
+              title="{{ partner.name }}"
             >
           </div>
           {% endfor %}
 
           
-          {% for cert in site.data.certifications %}
+          {% for partner in site.data.partners %}
           <div class="ticker-item flex-shrink-0 group cursor-pointer">
             <img 
-              src="{{ cert.logo }}" 
-              alt="{{ cert.name }}" 
+              src="{{ partner.logo }}" 
+              alt="{{ partner.name }}" 
               class="h-20 w-auto grayscale group-hover:grayscale-0 transition-all"
-              title="{{ cert.name }}"
+              title="{{ partner.name }}"
             >
           </div>
           {% endfor %}

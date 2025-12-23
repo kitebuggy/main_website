@@ -287,6 +287,45 @@
 }
 
 /* ============================================
+   STANDARDS BADGES
+   ============================================ */
+
+.standards-badge {
+  display: inline-block;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #64748b;
+  /* slate-600 for light mode */
+  white-space: nowrap;
+  cursor: default;
+  transition: color 0.3s ease;
+  user-select: none;
+}
+
+.standards-badge:hover {
+  color: #2C64B9;
+  /* QL Security blue */
+}
+
+/* Dark mode support */
+.dark .standards-badge {
+  color: #94a3b8;
+  /* slate-400 for dark mode */
+}
+
+.dark .standards-badge:hover {
+  color: #4080d9;
+  /* Lighter QL blue for dark mode */
+}
+
+/* Accessibility: Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .standards-badge {
+    transition: none;
+  }
+}
+
+/* ============================================
    PRINT STYLES
    ============================================ */
 

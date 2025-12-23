@@ -1,0 +1,29 @@
+---
+layout: default
+title: Standards Ticker Demo
+---
+
+<main>
+  <!-- Example 1: Default Usage -->
+  {% include components/standards-ticker.html %}
+
+  <!-- Spacer -->
+  <div class="py-8"></div>
+
+  <!-- Example 2: Custom Title & Subtitle -->
+  {% include components/standards-ticker.html 
+     title="Regulatory Expertise"
+     subtitle="Comprehensive coverage across global standards and frameworks"
+     speed="35"
+  %}
+
+  <!-- Spacer -->
+  <div class="py-8"></div>
+
+  <!-- Example 3: Different Speed -->
+  {% include components/standards-ticker.html 
+     title="Fast Ticker Example"
+     subtitle="Speed set to 25 seconds"
+     speed="25"
+  %}
+</main>

@@ -1,4 +1,4 @@
-<!-- Inverted Box Certifications Component -->
+<!-- Inverted Box Partners Component -->
 <!-- White box in dark mode, dark blue box in light mode - Jason's signature style! -->
 <section class="py-16 relative">
   <div class="container mx-auto px-4">
@@ -7,27 +7,27 @@
       {% if include.title %}
       <h3 class="text-center text-xl font-semibold mb-2">{{ include.title }}</h3>
       {% else %}
-      <h3 class="text-center text-xl font-semibold mb-2">Certified & Trusted</h3>
+      <h3 class="text-center text-xl font-semibold mb-2">Partnerified & Trusted</h3>
       {% endif %}
       
       {% if include.subtitle %}
       <p class="text-center text-sm mb-8 subtitle">{{ include.subtitle }}</p>
       {% else %}
-      <p class="text-center text-sm mb-8 subtitle">Industry-leading certifications and partnerships</p>
+      <p class="text-center text-sm mb-8 subtitle">Industry-leading partners and partnerships</p>
       {% endif %}
       
       <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-{{ include.columns | default: '6' }} gap-8 items-center">
-        {% for cert in site.data.certifications limit:include.limit %}
+        {% for partner in site.data.partners limit:include.limit %}
         <div class="flex flex-col items-center group cursor-pointer">
           <img 
-            src="{{ cert.logo }}" 
-            alt="{{ cert.name }}" 
+            src="{{ partner.logo }}" 
+            alt="{{ partner.name }}" 
             class="h-12 w-auto grayscale group-hover:grayscale-0 transition-all mb-2"
-            title="{{ cert.name }}"
+            title="{{ partner.name }}"
           >
           {% if include.show_names %}
           <p class="text-xs text-center opacity-0 group-hover:opacity-100 transition-opacity">
-            {{ cert.name }}
+            {{ partner.name }}
           </p>
           {% endif %}
         </div>
