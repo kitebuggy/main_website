@@ -497,41 +497,7 @@ footer {
   color: var(--color-footer-link-hover);
 }
 
-/* Footer logo switching - show appropriate logo for each theme */
-/* Force both logos to same size with explicit dimensions */
-.footer-logo-light,
-.footer-logo-dark {
-  height: 2rem;
-  width: 10rem;  /* Match original logo's wider aspect ratio */
-  object-fit: contain;
-}
-
-/* Light mode: show dark logo, hide light logo */
-[data-theme="light"] .footer-logo-light {
-  display: block;
-}
-
-[data-theme="light"] .footer-logo-dark {
-  display: none;
-}
-
-/* Dark mode: show light logo, hide dark logo */
-[data-theme="dark"] .footer-logo-light {
-  display: none;
-}
-
-[data-theme="dark"] .footer-logo-dark {
-  display: block;
-}
-
-/* Default (no theme set yet, assume light mode) */
-.footer-logo-light {
-  display: block;
-}
-
-.footer-logo-dark {
-  display: none;
-}
+/* Footer logo now uses inline SVG with CSS variable for automatic theme adaptation */
 
 /* ============================================
    SERVICE CARDS
