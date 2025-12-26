@@ -39,6 +39,10 @@ collections:
     output: true
     permalink: /services/:name/
     
+# Include files that Jekyll might otherwise ignore
+include:
+  - site.webmanifest
+
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to

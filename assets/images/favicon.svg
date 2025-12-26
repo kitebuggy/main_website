@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <!-- Quantum orbital rings - simplified for favicon -->
+  <g fill="none" stroke="currentColor" stroke-width="8">
+    <!-- Outer ellipse -->
+    <ellipse cx="250" cy="250" rx="200" ry="100" opacity="0.6"/>
+    <!-- Middle ellipse -->
+    <ellipse cx="250" cy="250" rx="140" ry="70" opacity="0.7"/>
+    <!-- Inner ellipse -->
+    <ellipse cx="250" cy="250" rx="80" ry="40" opacity="0.8"/>
+  </g>
+  <!-- Center dot representing quantum particle -->
+  <circle cx="250" cy="250" r="12" fill="currentColor"/>
+  
+  <!-- Theme support -->
+  <style>
+    :root { color: #2C64B9; }
+    @media (prefers-color-scheme: dark) {
+      :root { color: #ffffff; }
+    }
+  </style>
+</svg>
